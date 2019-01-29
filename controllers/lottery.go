@@ -287,20 +287,18 @@ func (this *LotteryController) Setting() {
 	}
 	id, err := this.GetInt("id", -1)
 	this.Data["edit"] = false
-	//list := GetActivity()
 	if id != -1 && err == nil {
 		gift, err := GetLotteryGiftByID(id)
 		if err == nil {
 			this.Data["giftname"] = gift.GiftName
 			this.Data["fee"] = float64(float64(gift.Fee) / float64(FAC))
-			this.Data["quantity"] = gift.Quantity
+			this.Data["quantity"] = GetLeftQuantity(gift.Id)
 			this.Data["odds"] = float64(float64(gift.Odds) / float64(FACTOR))
 			this.Data["valid"] = gift.Valid
-			this.Data["leftquantity"] = gift.LeftQuantity
 			this.Data["method"] = gift.Method
 			this.Data["edit"] = true
 			this.Data["id"] = id
-		} else {
+		}else {
 			this.Data["msg"] = err.Error()
 		}
 	}

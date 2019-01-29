@@ -5,58 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/lotter.db.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/lotter.db.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/lottery.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/lottery.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/registerdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/registerdb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547867288.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547867289.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547867378.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547867438.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547888214.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547888351.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547888459.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547888572.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547888759.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547889107.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547889187.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547890227.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547899553.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1547971800.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/address/address_1548402121.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547783335.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547783476.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547783583.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547783987.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547784264.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547806258.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547864167.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1547899453.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1548121825.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/qr/qr_1548122874.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547694462.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547694483.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547694848.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547695346.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547697498.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547697880.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547705323.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547705793.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547707153.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547707169.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547708053.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547708343.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547708360.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547708378.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547714179.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547717549.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547782896.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547784133.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547809699.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547809750.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547867508.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547899574.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1547899682.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tmp/winning/winning_1548319602.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Address_management.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/Address_management.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/inc/js.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/inc/js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Activity_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/Activity_settings.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,31 +16,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/registerdb.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/registerdb2.go">
+        <entry file="file://$PROJECT_DIR$/controllers/lottery.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/lotteryuser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+            <state relative-caret-position="-2">
+              <caret line="285" column="14" lean-forward="true" selection-start-line="285" selection-start-column="14" selection-end-line="285" selection-end-column="14" />
               <folding>
-                <element signature="e#72#213#0" />
+                <element signature="e#242#268#0" />
+                <element signature="n#!!block;n#GetQrcode#0" />
+                <element signature="n#!!block;n#QueryById#0" />
+                <element signature="n#!!block;n#SettingQuery#0" />
+                <element signature="n#!!block;n#WinnQuery#0" />
+                <element signature="n#!!block;n#AddressQuery#0" />
+                <element signature="n#!!block;n#GetWinning#0" />
+                <element signature="n#!!block;n#GetAddress#0" />
+                <element signature="n#!!block;n#SettingAddress#0" />
+                <element signature="n#!!block;n#SaveAddress#0" />
+                <element signature="n#!!block;n#RemoveAddress#0" />
+                <element signature="n#!!block;n#calculateOdd#0" />
+                <element signature="n#!!block;n#modifyGift#0" />
+                <element signature="n#!!block;n#removeGift#0" />
+                <element signature="n#!!block;n#RemoveGift#0" />
+                <element signature="n#!!block;n#Getqr#0" />
+                <element signature="n#!!block;n#GenWinnerExcel#0" />
+                <element signature="n#!!block;n#GenQrExcel#0" />
+                <element signature="n#!!block;n#GenAddressExcel#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/lottery.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1110">
+              <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+              <folding>
+                <element signature="e#44#188#0" />
+                <element signature="e#216#583#0" />
+                <element signature="e#618#984#0" />
+                <element signature="e#1359#1509#0" />
+                <element signature="e#1532#1798#0" />
+                <element signature="e#1827#1991#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/Activity_settings.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Prize_setting.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="63" column="48" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/lotter.db.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="145" column="28" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="52" />
+              <folding>
+                <element signature="e#21#128#0" expanded="true" />
+                <element signature="e#763#817#0" />
+                <element signature="e#1865#2158#0" />
+                <element signature="e#2224#2745#0" />
+                <element signature="e#4421#5002#0" />
+                <element signature="e#5076#5810#0" />
+                <element signature="e#5923#6485#0" />
+                <element signature="e#6569#6914#0" />
+                <element signature="e#7363#7617#0" />
+                <element signature="e#7704#7779#0" />
+                <element signature="e#7826#8175#0" />
+                <element signature="e#8256#8331#0" />
+                <element signature="e#8395#9141#0" />
+                <element signature="e#9234#9579#0" />
+                <element signature="e#9669#10041#0" />
+                <element signature="e#10114#10450#0" />
+                <element signature="e#10568#11106#0" />
+                <element signature="e#11154#11571#0" />
+                <element signature="e#11654#11974#0" />
+                <element signature="e#12020#12272#0" />
+                <element signature="e#12353#12461#0" />
+                <element signature="e#12547#12624#0" />
               </folding>
             </state>
           </provider>
@@ -100,10 +118,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>this.Data</find>
-      <find>Date</find>
       <find>Login</find>
-      <find>GetActivity</find>
       <find>Logout</find>
       <find>lotteruser</find>
       <find>address</find>
@@ -111,7 +126,6 @@
       <find>INSER</find>
       <find>RemoveGift</find>
       <find>settingQuery</find>
-      <find>GetLeftQuantity</find>
       <find>gift.LeftQuantity = GetLeftQuantity(gift.Id)</find>
       <find>实物类型</find>
       <find>LeftQuantity</find>
@@ -130,6 +144,10 @@
       <find>Insert</find>
       <find>left join</find>
       <find>EditAddress</find>
+      <find>gift.fee</find>
+      <find>GetGiftUsedByGiftID</find>
+      <find>GetLeftQuantity</find>
+      <find>GetActivity</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -154,7 +172,6 @@
         <option value="$PROJECT_DIR$/models/lotteryuser.go" />
         <option value="$PROJECT_DIR$/controllers/session.go" />
         <option value="$PROJECT_DIR$/views/inc/excel.html" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/views/Delete_result.html" />
         <option value="$USER_HOME$/Desktop/Lottery/views/Successful_editing.html" />
         <option value="E:/概率.go" />
@@ -168,26 +185,27 @@
         <option value="$PROJECT_DIR$/controllers/base.go" />
         <option value="$PROJECT_DIR$/views/Prize_setting.html" />
         <option value="$PROJECT_DIR$/views/QRcode_query.html" />
-        <option value="$PROJECT_DIR$/views/Activity_settings.html" />
         <option value="$USER_HOME$/Desktop/123.go" />
         <option value="$PROJECT_DIR$/views/quer.html" />
         <option value="$USER_HOME$/Desktop/luckybag_lottory_gifts.sql" />
         <option value="$PROJECT_DIR$/models/lottery.go" />
         <option value="$USER_HOME$/Desktop/lotteryuser.sql" />
-        <option value="$PROJECT_DIR$/controllers/lotter.db.go" />
-        <option value="$PROJECT_DIR$/controllers/lottery.go" />
         <option value="$PROJECT_DIR$/views/Winning_result.html" />
         <option value="$PROJECT_DIR$/views/inc/js.html" />
         <option value="$PROJECT_DIR$/views/Address_management.html" />
         <option value="$PROJECT_DIR$/models/registerdb.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/controllers/lotter.db.go" />
+        <option value="$PROJECT_DIR$/controllers/lottery.go" />
+        <option value="$PROJECT_DIR$/views/Activity_settings.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="846" />
-    <option name="y" value="148" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="831" />
+    <option name="y" value="165" />
     <option name="width" value="1942" />
-    <option name="height" value="1102" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -272,10 +290,10 @@
     </configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="665" y="132" width="1553" height="882" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15549597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17458194" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -332,17 +350,10 @@
           <url>file://$PROJECT_DIR$/models/lotteryuser.go</url>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/controllers/lottery.go</url>
-          <line>218</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/inc/mete.html" />
     <entry file="file://$USER_HOME$/Desktop/模板/前端模板/Winning_result.html" />
     <entry file="file://$PROJECT_DIR$/views/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
@@ -400,16 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41">
           <caret line="19" column="9" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#14#149#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -515,20 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/Prize_setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="70" column="54" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Activity_settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/Lottery1.0/youbon.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -558,21 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/lottery.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
-          <folding>
-            <element signature="e#44#188#0" />
-            <element signature="e#216#583#0" />
-            <element signature="e#618#984#0" />
-            <element signature="e#1359#1509#0" />
-            <element signature="e#1532#1798#0" />
-            <element signature="e#1827#1991#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/Winning_result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -580,91 +552,6 @@
           <folding>
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Address_management.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/lotter.db.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="453" selection-start-line="453" selection-start-column="2" selection-end-line="458" selection-end-column="3" />
-          <folding>
-            <element signature="e#21#128#0" expanded="true" />
-            <element signature="e#183#724#0" />
-            <element signature="e#762#818#0" />
-            <element signature="e#1808#2101#0" />
-            <element signature="e#2167#2688#0" />
-            <element signature="e#2747#2963#0" />
-            <element signature="e#3015#3700#0" />
-            <element signature="e#3764#4279#0" />
-            <element signature="e#4364#4945#0" />
-            <element signature="e#5019#5753#0" />
-            <element signature="e#5837#6399#0" />
-            <element signature="e#6512#6857#0" />
-            <element signature="e#6940#7254#0" />
-            <element signature="e#7306#7560#0" />
-            <element signature="e#7368#7422#0" />
-            <element signature="e#7647#7722#0" />
-            <element signature="e#7769#8118#0" />
-            <element signature="e#8199#8274#0" />
-            <element signature="e#8338#9084#0" />
-            <element signature="e#9177#9522#0" />
-            <element signature="e#9612#9984#0" />
-            <element signature="e#10057#10393#0" />
-            <element signature="e#10482#11020#0" />
-            <element signature="e#11097#11514#0" />
-            <element signature="e#11597#11917#0" />
-            <element signature="e#11963#12215#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/js.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/lottery.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="532" column="35" lean-forward="true" selection-start-line="532" selection-start-column="35" selection-end-line="532" selection-end-column="35" />
-          <folding>
-            <element signature="e#242#268#0" />
-            <element signature="n#!!block;n#GetQrcode#0" />
-            <element signature="n#!!block;n#QueryById#0" />
-            <element signature="n#!!block;n#SettingQuery#0" />
-            <element signature="n#!!block;n#WinnQuery#0" />
-            <element signature="n#!!block;n#AddressQuery#0" />
-            <element signature="n#!!block;n#GetWinning#0" />
-            <element signature="n#!!block;n#GetPrize#0" />
-            <element signature="n#!!block;n#GetAddress#0" />
-            <element signature="n#!!block;n#SettingAddress#0" />
-            <element signature="n#!!block;n#RemoveAddress#0" />
-            <element signature="n#!!block;n#Setting#0" />
-            <element signature="n#!!block;n#calculateOdd#0" />
-            <element signature="n#!!block;n#modifyGift#0" />
-            <element signature="n#!!block;n#removeGift#0" />
-            <element signature="n#!!block;n#RemoveGift#0" />
-            <element signature="n#!!block;n#Getqr#0" />
-            <element signature="n#!!block;n#GenWinnerExcel#0" />
-            <element signature="n#!!block;n#GenQrExcel#0" />
-            <element signature="n#!!block;n#GenAddressExcel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/registerdb2.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -678,10 +565,133 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/js.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/registerdb.go">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Address_management.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/registerdb2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/luckybag_lottory_gifts (3).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="49" selection-start-line="49" selection-end-line="56" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/lotter.db.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="145" column="28" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="52" />
+          <folding>
+            <element signature="e#21#128#0" expanded="true" />
+            <element signature="e#763#817#0" />
+            <element signature="e#1865#2158#0" />
+            <element signature="e#2224#2745#0" />
+            <element signature="e#4421#5002#0" />
+            <element signature="e#5076#5810#0" />
+            <element signature="e#5923#6485#0" />
+            <element signature="e#6569#6914#0" />
+            <element signature="e#7363#7617#0" />
+            <element signature="e#7704#7779#0" />
+            <element signature="e#7826#8175#0" />
+            <element signature="e#8256#8331#0" />
+            <element signature="e#8395#9141#0" />
+            <element signature="e#9234#9579#0" />
+            <element signature="e#9669#10041#0" />
+            <element signature="e#10114#10450#0" />
+            <element signature="e#10568#11106#0" />
+            <element signature="e#11154#11571#0" />
+            <element signature="e#11654#11974#0" />
+            <element signature="e#12020#12272#0" />
+            <element signature="e#12353#12461#0" />
+            <element signature="e#12547#12624#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Prize_setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/lottery.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+          <folding>
+            <element signature="e#44#188#0" />
+            <element signature="e#216#583#0" />
+            <element signature="e#618#984#0" />
+            <element signature="e#1359#1509#0" />
+            <element signature="e#1532#1798#0" />
+            <element signature="e#1827#1991#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/lottery.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="285" column="14" lean-forward="true" selection-start-line="285" selection-start-column="14" selection-end-line="285" selection-end-column="14" />
+          <folding>
+            <element signature="e#242#268#0" />
+            <element signature="n#!!block;n#GetQrcode#0" />
+            <element signature="n#!!block;n#QueryById#0" />
+            <element signature="n#!!block;n#SettingQuery#0" />
+            <element signature="n#!!block;n#WinnQuery#0" />
+            <element signature="n#!!block;n#AddressQuery#0" />
+            <element signature="n#!!block;n#GetWinning#0" />
+            <element signature="n#!!block;n#GetAddress#0" />
+            <element signature="n#!!block;n#SettingAddress#0" />
+            <element signature="n#!!block;n#SaveAddress#0" />
+            <element signature="n#!!block;n#RemoveAddress#0" />
+            <element signature="n#!!block;n#calculateOdd#0" />
+            <element signature="n#!!block;n#modifyGift#0" />
+            <element signature="n#!!block;n#removeGift#0" />
+            <element signature="n#!!block;n#RemoveGift#0" />
+            <element signature="n#!!block;n#Getqr#0" />
+            <element signature="n#!!block;n#GenWinnerExcel#0" />
+            <element signature="n#!!block;n#GenQrExcel#0" />
+            <element signature="n#!!block;n#GenAddressExcel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Activity_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
         </state>
       </provider>
     </entry>
