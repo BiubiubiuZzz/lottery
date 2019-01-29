@@ -11,7 +11,8 @@
             console.log("save span report...");
             var startTime = $("#start").val();
             var endTime = $("#end").val();
-            var scope = $("input[type='radio'][name='scope']:checked").val();
+           // var scope = $("input[type='radio'][name='scope']:checked").val();
+           var scope = $(this).attr("data-scope");
             console.log("start:", startTime, " end:", endTime, "scope:", scope);
             if (startTime=="" || endTime=="" ){
                 console.log("no valid select!");

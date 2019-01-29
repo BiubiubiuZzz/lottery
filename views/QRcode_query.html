@@ -41,8 +41,10 @@
                     </form>
                     <br>
                     <div class="spantable">
-                      开始时间:<input id="start" type="text" class="put_date" > 结束时间 <input id="end" type="text" class="put_date"> <input type="radio" name="scope" value="qr">test</input>
-                      <button  type="radio" id="saveSpan" class="btn btn-primary" name="scope" value="qr">导出</button>
+                      开始时间:<input id="start" type="text" class="put_date" > 结束时间
+                       <input id="end" type="text" class="put_date"> 
+                       <!-- <input type="radio" name="scope" value="qr">test</input> -->
+                      <button  type="radio" id="saveSpan" class="btn btn-primary" data-scope="qr">导出</button>
                     </div>
 					 {{if .qrlist}}
                     <div class="tools clearfix">
