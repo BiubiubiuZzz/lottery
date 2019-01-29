@@ -1,0 +1,46 @@
+<fieldset>
+    {{if .edit}}
+        <legend>修改用户信息</legend>
+    {{else}}
+        <legend>修改用户信息</legend>
+    {{end}}
+    {{if .msg}}
+        <p>{{.msg}}</p>
+    {{else}}
+        {{/*<p>当各种商品概率总和已经为100，请修改概率，否则设置概率为0</p>*/}}
+    {{end}}
+    <form class="form-horizontal" method="post" action="save">
+        <table class="table table-form">
+            <tbody>
+            <input type="hidden" name="edit" value={{.edit}}>
+            <input type="hidden" name="id" value={{.id}}>
+            <tr>
+                <th class="span2">名字：</th>
+                <td><input name="name" value="{{.name}}" class="input" type="text" /></td>
+            </tr>
+            <tr>
+                <th class="span2">邮件：</th>
+                <td><input name="email" value="{{.email}}" class="input" type="text" /></td>
+            </tr>
+            <tr>
+                <th>电话：</th>
+                <td><input name="phone" value="{{.phone}}" class="input" type="text" /></td>
+            </tr>
+            <tr>
+                <th>收货地址：</th>
+                <td><input name="address" value="{{.address}}" class="input" type="text" /> </td>
+            </tr>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <td>
+                    <button type="submit" class="btn"><i class="icon-ok"></i> 保存</button>
+                    <button type="button" class="btn" onclick="javascript:history.back();">取消</button>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</fieldset>

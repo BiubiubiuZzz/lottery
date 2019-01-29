@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{template "inc/foot.html".}}
+  {{template "inc/excel.html".}}
+</head>
+  <body>
+    <div id="container">
+      <table bgcolor="#e1e9eb" border="0" cellpadding="0" cellspacing="0" >
+        <tbody>
+          <tr>
+            <td width="150" class="leftTd"  style="vertical-align:top">
+              {{template "inc/meta.html".}}
+            </td>
+            <td width="7">
+              <div class="pointer"></div>
+            </td>
+            
+            <td width="" style="vertical-align:top">
+              <div class="right">
+                <div class="current">
+                  当前位置：地址管理>地址管理
+                </div>
+                <div class="rightCont fix">
+
+
+                  <label span></label>
+                  <div class="zy_mainbox prizepool">
+                    <div class="zy_toolbar log_bar">
+                      <form action="/address/Query" method="post">
+                        <input id="Id" name="PriceName" type="text" placeholder="奖品名称" style="font-size: 20px" value={{.queryValue }}>
+                        <button id ="add"  class="zy_button queryclass" type="submit">查询</button>
+                      </form>
+                      <br>
+                      <div class="spantable">
+                        开始时间:<input id="start" type="text" class="put_date" > 结束时间 <input id="end" type="text" class="put_date"> <input type="radio" name="scope" value="addr">test</input>
+                        <button id="saveSpan" class="btn btn-primary">导出</button>
+                      </div>
+                    </div>
+                    <iframe id="my_iframe" style="display:none;"></iframe>
+                    {{template "inc/js.html".}}
+                    <div class="award_manager jctable">
+                      <table class="award_managerlist ">
+                        <tbody>
+                          <tr class="th_bg">
+                            <th width="10%">奖品名称</th>
+                            <th width="6%">名字</th>
+                            <th width="15%">邮箱</th>
+                            <th width="8%">电话</th>
+                            <th width="20%">收货地址</th>
+                            <th width="10%">时间</th>
+                            <th width="10%">操作</th>
+                          </tr>
+                          {{range $k,$v := .lists}}
+                          <tr>
+                            <td>{{$v.GiftName}}</td>
+                            <td>{{$v.Name}}</td>
+                            <td>{{$v.Email}}</td>
+                            <td>{{$v.Phone}}</td>
+                            <td>{{$v.Address}}</td>
+                            <td>{{$v.AddressDate|convertt}}</td>
+                            <td>
+                              <span class="td_opt award_edit"><a href={{(printf  "/address/setting?id=%d" $v.Id )}} >编辑</a> </span>
+                              <span class="td_opt award_del"><a href={{(printf  "/address/remove?id=%d" $v.Id )}}   > 删除</a></span>
+                            </td>
+                          </tr>
+                          {{end}}
+                          <tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="page_div clearfix">
+                      {{/*<div class="page fix" >*/}}
+                        {{/*<a href="#" class="pre">上一页</a> */}}
+                        {{/*<a href="#" class="num cur">1</a> */}}
+                        {{/*<a href="#" class="num">2</a>*/}}
+                        {{/*......*/}}
+                        {{/*<a href="#" class="num">4</a>*/}}
+                        {{/*<a href="#" class="next">下一页</a>*/}}
+                      {{/*</div>*/}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>

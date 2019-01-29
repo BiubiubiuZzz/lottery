@@ -1,0 +1,89 @@
+
+<script>
+    $(document).ready(function(){
+        jQuery('#start').datetimepicker({
+            lang:'zh'
+        });
+        jQuery('#end').datetimepicker({
+            lang:'zh'
+        });
+        $("#saveSpan").click(function(){
+            console.log("save span report...");
+            var startTime = $("#start").val();
+            var endTime = $("#end").val();
+            // var boardid = $("#boardid").val();
+            var scope = $("input[type='radio'][name='scope']:checked").val();
+            console.log("start:", startTime, " end:", endTime, "scope:", scope);
+            if (startTime=="" || endTime=="" ){
+                console.log("no valid select!");
+                return;
+            }
+            $.get(
+                "/rport/excel",
+                {
+                    {{/*state:{{.State}}+'',*/}}
+                    start: startTime,
+                    end: endTime,
+                    // boardid: boardid,
+                    scope: scope
+                },
+                function(data){
+                    console.log("filename:" + data);
+                    if (data.length>0){
+                        //window.location.href=''+data;
+                        console.log("host:", window.location.host, " port:", window.location.port);
+                        var filelocation = "http://" + window.location.host + data;
+                        console.log(filelocation);
+                        document.getElementById('my_iframe').src = filelocation;
+                    }
+                }
+            );
+
+        });
+        $("#saveSpanReport").click(function(){
+            console.log("saving report pdf...");
+            var boardid = $("#reportid").val();
+            console.log("boardid for report:", boardid);
+            if (boardid == ""){
+                console.log("no valid report id!");
+                return;
+            }
+            $.get(
+                "/admin/report/spanreportpdf",
+                {
+                    state: {{.State}}+'',
+                    boardid: boardid
+                },
+                function(data){
+                    console.log("filename:" + data);
+                    if (data.length>0){
+                        console.log("host:", window.location.host, " port:", window.location.port);
+                        var filelocation = "http://" + window.location.host + data;
+                        console.log(filelocation);
+                        window.location.href = filelocation;
+                        document.getElementById('my_iframe').src = filelocation;
+                    }
+                }
+            )
+        });
+        $("#saveAllReport").click(function(){
+            console.log("saving all report excel...");
+            $.get(
+                "/admin/report/recentallreport",
+                {
+                    state: {{.State}}+'',
+                },
+                function(data){
+                    console.log("filename:" + data);
+                    if (data.length>0){
+                        console.log("host:", window.location.host, " port:", window.location.port);
+                        var filelocation = "http://" + window.location.host + data;
+                        console.log(filelocation);
+                        window.location.href = filelocation;
+                        document.getElementById('my_iframe').src = filelocation;
+                    }
+                }
+            )
+        });
+    });
+</script>

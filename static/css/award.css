@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+/*共用*/
+body{color:#6e6e6e;}
+.zy_select{height: 26px;}
+.labels{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 2em;
+	font-size: 14px;
+	text-align: center;
+	height: 26px;
+	line-height: 26px;
+	font-weight: normal;
+	/* position: relative; */
+	}
+
+.t_over{ text-overflow: ellipsis; white-space: nowrap;overflow: hidden;} 
+/*新增*/
+.zy_mainbox td{word-break:break-all;}
+
+.award_managerlist{word-break:initial!important}
+
+.zy_button{width:80px;margin-left: 10px;height: 28px;line-height: 28px;}
+.zy_table tr td,.zy_table tr th{height:30px;border: 1px solid #ccc;}
+.alignright{text-align: right;}
+table{width:100%}
+.tabSub{margin-right: 2em;transition:all .2s;}
+.couponlog_search{/* margin-right:0; */}
+.titletxt{line-height: 26px;font-weight: normal;font-size: 16px;}
+.zy_mainbox table{text-align: center;vertical-align:middle;}
+.zy_mainbox table td,.zy_mainbox table th{border:1px solid #ccc;height:30px;}
+.editwrap{font-family:"microsoft yahei"; }
+.forminput{font-size: 16px}
+.forminput .put_text{ vertical-align: middle;width: 282px;height: 26px;border: 1px solid #ddd;line-height: 26px;font-size: 14px;}
+
+input[readonly="readonly"]{background: #eee;cursor: not-allowed;}
+.forminput .typename{width: 133px;}
+
+.add1{width:135px}
+.interf1 span{width:40px!important}
+input.typename11{width: 172px!important;}
+.input_lab{display: inline-block;width:90px;text-align: right;font-size: 16px}
+.ls1{letter-spacing: 1em;}
+.hidden{display: none;}
+input{font-family: "microsoft yahei";}
+select{font-size:14px;font-family: "microsoft yahei";}
+/*奖品管理*/
+.zy_mainbox{padding:0px 20px;min-width: 1000px;/* position: relative; */ }
+.tools{position: relative;margin:10px 0;}
+.tc_box{}
+.forminput{position: relative;margin: 15px 0;}
+.userterm,.rechargeterm{padding-left: 1px;}
+.userterm>label,.rechargeterm>label{;margin-left:20px}
+
+input[name="userterm"],input[name="rechargeterm"]{margin-right:8px;}
+.tbox-addtype .Interfacelab select{width: 85px!important;}
+.Interfacelab select{width: 100px!important;}
+.typename11{width:100px!important}
+.tbox-addtype .Interfacelab .input_lab{width: 54px;}
+.Interface{width: 83px;}
+/*.userterm,.rechargeterm{margin:0 auto}*/
+.tbox-addclass .forminput:nth-child(2) label,
+.tbox-addtype .forminput:nth-child(2) label,
+.tbox-modifytype .forminput:nth-child(2) label{margin-right:0}
+
+
+.zy_button{
+	background: #C2E3EC;
+	background: #f3f3f3;
+	color:#6e6e6e;
+	border: 1px solid #f1f1f1;
+	/* text-shadow: 0 0 1px #FFF; */
+	/*background: -moz-linear-gradient(top,#ECF3FD 0%,#D6E9EF 50%,#ECF3FD 100%);
+	background: -o-linear-gradient(top,#ECF3FD 0%,#D6E9EF 50%,#ECF3FD 100%);
+	background: -ms-linear-gradient(top,#ECF3FD 0%,#D6E9EF 50%,#ECF3FD 100%);
+	background: -webkit-linear-gradient(top,#f3f3f3 0%,#e1e1e1 50%,#f3f3f3 100%); 
+	background: linear-gradient(top,#ECF3FD 0%,#D6E9EF 50%,#ECF3FD 100%);*/
+}
+.zy_mainbox .queryclass{position:relative;top:4px}
+.award_manager .p_txt{text-indent:2em;margin:20px 0;color:#ccc}
+
+.award_manager .selected{background: #4c8ccc;color: #fefefe;cursor: pointer;text-shadow: 0 0 1px rgba(255,255,255,.5);}
+
+
+/*奖池管理0127*/
+/*共用*/
+.put_text{
+	vertical-align: middle;
+    width: 220px;
+    height: 24px;
+    border: 1px solid #ddd;
+    line-height: 24px;
+}
+
+.put_date{
+	position:relative;
+	vertical-align: middle;
+	height: 23px;
+	border: 1px solid #ddd;
+	line-height: 23px;
+}
+
+.labels span.datebar{
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	background: url(../images/icon.png) no-repeat 0 -381px;
+}
+
+/*公用*/
+.need{color:red;width:6px!important}
+.prizepool{
+    padding: 0 14px;
+}
+.zy_toolbar{/* margin:10px 0; */padding: 10px 0;/* background: #f3f3f3; */display: block;position: relative;}
+
+.zy_mainbox .divspr{padding:20px 20px;display: block;}
+.zy_toolbar .labels{margin-right: 12px;font-size: 14px;}
+label.logopt{
+    margin-left: 2em;
+}
+
+.opt_select{width:100px;}
+.award_applylist .td_opt{margin:0 2em}
+.td_opt{
+    margin: 0 2px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-shadow: 0 0 2px  #E5F0FF;
+    font-size: 14px;
+    color: #50C1E9;
+}
+
+.td_opt a{
+	color:#50C1E9!important;
+}
+
+.jctable{/* overflow-x:scroll; */}
+.jctable table .operation,.jctable table .nowstate{ word-break: normal;white-space: nowrap; }
+.jctable table td{padding:0 2px}
+.page{padding-top:10px}
+
+.uetip{margin:20px 0;opacity: 0.5}
+
+/*奖池管理-日志*/
+
+.logwrap{
+
+}
+
+.logwrap .logend{margin-left: 94px;}
+.log_bar{/* padding: 0 0!important; */}
+.log_export{float:right;clear:both;margin-right: 0;}
+.logbox_title{padding:5px 0;}
+
+.coupon_wrap{padding:0 0px}
+
+.coupon_wrap .zy_toolbar:nth-child(1){padding-bottom: 0!important;}
+.coupon_wrap .labels{margin: 5px 70px 8px 0;}
+.coupon_wrap label.date1 input{margin-left: 28px;}
+.coupon_wrap label.date2 input{margin-left: 27px;}
+.coupon_wrap label.date3 input{margin-left:0}
+.coupon_wrap label.date4 input{margin-left: 0;}
+
+/*奖池 -新增奖品*/
+.addprize{width: 900px;position:relative;}
+.addprize .need{color:red;width:6px!important}
+.addprize .awarddesc textarea{padding:1em;font-size: 14px;letter-spacing: 2px;max-width: 960px;}
+.addprize .awarddesc dt{font-size: 16px;margin:15px 0 5px 0 ;}
+.addprize .zy_toolbar span{font-size:14px;}
+.addprize .zy_toolbar span label{margin:0 15px}
+.addprize .zy_toolbar>span input[type="checkbox"]{margin-top:-2px}
+.addprize .pw_nub{width: 155px;}
+.addprize .btmbtn{padding: 10px 200px;}
+.addprize .excelimport{width:100px;font-size: 14px;}
+.addprize .daorubs{background:#ccc}
+
+.adddaorubs{background: #fff!important;}
+.adddata_import{margin:0 50px}
+
+.award_add{float:right;clear:both;margin-right: 0;}
+/* 当前库存 */
+.act_items span{display:block;height:30px;line-height:30px;border-bottom: 1px solid #eee;}
+
+/* 申请管理 */
+.award_managerlist th.td8,.award_managerlist td.td8{word-break: normal!important;text-overflow: ellipsis;      white-space: nowrap;      overflow: hidden;max-width: 250px;}
+
+.jpsqtable table{width:100%;}
+
+.jpsqtable table th,.jpsqtable table td{ text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;}
+
+/*奖品申请审核*/
+.applyexamine{font-size: 14px;}
+.applyexamine .aw_title{border-bottom: 1px dotted #ccc;}
+.applyexamine .aw_add_title{border-bottom: 1px dotted #ccc;}
+.applyexamine .btmbtn{padding-left: 190px;}
+
+.applyexamine textarea{padding:1em;font-size: 14px;letter-spacing: 2px;max-width: 960px;}
+.divspr li{display:inline-block;min-width: 160px;margin: 10px 15px;}
+.divspr .aw_title{padding:8px 0}
+.result_examine{margin: 20px 0;}
+.result_examine dl dt{margin:5px 0}
+
+/* 活动列表 */
+.act_manage .td_opt{margin: 0 1em;}
+
+/*活动管理-奖品申请*/
+
+
+div.addaw_box{
+	margin: 0 auto;
+	background: #fff;
+	z-index: 3001;
+	border: none;
+	box-shadow: 0 0 2px 2px #6e6e6e;
+	border-radius: 5px;
+	position: fixed;
+	top: 20%;
+	left: 35%;
+	overflow: auto;
+}
+div.addaw_box .box_header{    
+	width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: Microsoft Jhenghei;
+    background: #E5F0FF;}
+
+div.addaw_box1{
+	margin: 0 auto;
+	background: #fff;
+	z-index: 3001;
+	border: none;
+	border-radius: 5px;
+	position: fixed;
+	top: 25%;
+	left: 35%;
+	box-shadow: 0 0 2px 2px #6e6e6e;
+	overflow: auto;
+}
+div.addaw_box1 .box_header{    
+	width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: Microsoft Jhenghei;
+    background: #E5F0FF;}
+
+div.addaw_box1 .editbox1{padding: 15px 30px;}
+.nownub{color:red;}
+
+
+.rightbtn{text-align: right;padding:5px 0 15px 0}
+.rightbtn h2{float:left;clear:both}
+
+/* 新增奖品box */
+.addlabel{display:block;}
+.addlabel select{width:150px}
+.addlabel>span,.applytitle{width:100px;display:inline-block;margin:10px 0;text-align:left;}
+.surplus{width:200px!important}
+.applynumber .put_text{width:90px}
+.addaw_box label.addlabel:nth-child(5) p{color: #ccc;}
+.editbox1{
+    padding: 15px 5px 15px 30px;
+    }
+
+.editbox1 .op_btn {text-align: center;padding:20px 0 0 0}
+
+.editbox1 .op_btn button{margin: 0 10px;}
+/* 奖品回退 */
+.aw_title{border-bottom: 1px dotted #ccc;}
+.actAwaraReturn .btmbtn{text-align:center}
+
+/*统一字体*/
+.zy_mainbox{font-size: 14px;}
+.zy_mainbox th{font-size: 12px;}
+
+.attention_txt{font-size:12px;color:#ccc;}
+.p_txt11{padding:10px 0 0 90px}

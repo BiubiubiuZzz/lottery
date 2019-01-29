@@ -1,0 +1,57 @@
+<fieldset>
+    {{if .edit}}
+        <legend>添加奖品</legend>
+    {{else}}
+        <legend>编辑奖品</legend>
+    {{end}}
+    {{if .msg}}
+    <p>{{.msg}}</p>
+    {{else}}
+    <p>当各种商品概率总和已经为100，请修改概率，否则设置概率为0</p>
+     {{end}}
+    <form class="form-horizontal" method="post" action="SaveGift">
+        <table class="table table-form">
+            <tbody>
+            <input type="hidden" name="edit" value={{.edit}}>
+            <input type="hidden" name="id" value={{.id}}>
+            <tr>
+                <th class="span2">奖品名称：</th>
+                <td><input name="giftname" value="{{.giftname}}" class="input" type="text" /></td>
+            </tr>
+            <tr>
+                <th class="span2">奖品金额：</th>
+                <td><input name="fee" value="{{.fee}}" class="input" type="text" /></td>
+            </tr>
+            <tr>
+                <th>剩余数量：</th>
+                <td><input name="quantity" value="{{.quantity}}" class="input" type="text"/>
+
+                </td>
+
+            </tr>
+            <tr>
+                <th>概率：</th>
+                <td><input name="odds" value="{{.odds}}" class="input" type="text" /> </td>
+            </tr>
+            <tr>
+                <th>活动是否有效</th>
+                <td><input name="valid" value="{{.valid}}" class="input" type="text" /> </td>
+            </tr>
+            <tr>
+                <th>奖品类型：</th>
+                <td><input name="method" value="{{.method}}" class="input" type="text" /> </td>
+            </tr>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th></th>
+                <td>
+                    <button type="submit" class="btn"><i class="icon-ok"></i> 保存</button>
+                    <button type="button" class="btn" onclick="javascript:history.back();">取消</button>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</fieldset>

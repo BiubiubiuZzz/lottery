@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   {{template "inc/foot.html".}}
+  </head>
+  <body>
+
+    <div id="container">
+      <table bgcolor="#e1e9eb" border="0" cellpadding="0" cellspacing="0" >
+        <tbody>
+          <tr>
+            <td width="150" class="leftTd"  style="vertical-align:top">
+            {{template "inc/meta.html".}}
+            </td>
+            <td width="7">
+              <div class="pointer"></div>
+            </td>
+            
+            <td width="" style="vertical-align:top">
+              <div class="right">
+                <div class="current">
+                  当前位置：奖品设置>奖品设置
+                </div>
+                <div class="rightCont fix">
+
+                  <!-- 主体内容 -->
+                  <div class="zy_mainbox aw_apply">
+                    <div class="zy_toolbar">
+                      <form action="/Prize/settingQuery" method="post">
+                        <input id="Id" name="PriceName" type="text" placeholder="奖品名称" style="font-size: 20px" value={{.queryValue }}>
+                        <button id ="add"  class="zy_button queryclass" type="submit">查询</button>
+                      </form>
+
+                    </div>
+                    
+                    <div class="award_manager acttable">
+                      <div class="zy_toolbar">
+                        <span class="tabSub aw_newadd"><a href="/activity/setting">新增设置</a></span>
+                      </div>
+
+                      <table class="award_applylist ">
+                        <tbody>
+                          <tr class="th_bg">
+                            <th width="15%">奖品名称</th>
+                            <th width="5%">金额</th>
+                            <th width="10%">原始数量</th>
+                            <th width="10%">剩余数量</th>
+                            <th width="10%">已使用数量</th>
+                            <th width="15%">概率</th>
+                            <th width="10%">奖品是否有效</th>
+                            <th width="10%">类型</th>
+                            <th width="20%">操作</th>
+                          </tr>
+                          {{range $k,$v := .activitylists}}
+                          <tr>
+                            <td>{{$v.GiftName}}</td>
+                            <td>{{$v.Fee}}</td>
+                            <td>{{$v.Total}}</td>
+                            <td>{{$v.LeftQuantity}}</td>
+                            <td>{{$v.Used}}</td>
+                            <td>{{$v.Odds}}</td>
+                            {{if eq $v.Valid 1}}
+                            <td>有效</td>
+                            {{else}}
+                            <td>无效</td>
+                            {{end}}
+                            {{if eq $v.Method 1}}
+                            <td class="aSmallclass">红包</td>
+                            {{else if eq $v.Method 2}}
+                            <td class="aSmallclass">实物</td>
+                            {{else }}
+                            <td class="aSmallclass">无</td>
+                            {{end}}
+                            {{/*{{range $k,$v := .aaa}}*/}}
+                          {{/*<tr>*/}}
+                            {{/*<td>{{$v.GiftId}}</td>*/}}
+                            {{/*{{end}}*/}}
+                            <td>
+
+                              <span class="td_opt award_edit"><a href={{(printf  "/activity/setting?id=%d" $v.Id )}} >编辑</a> </span>
+                              <span class="td_opt award_del"><a href={{(printf  "/activity/remove?id=%d" $v.Id )}}   > 删除</a></span>
+                          </tr>
+                        {{end}}
+
+                        </tbody>
+                      </table>
+                      
+                    </div>
+                    {{/*<div class="mengban" style="display:none"></div>*/}}
+                    {{/*<div class="addaw_box" style="display:none">*/}}
+                      {{/*<div class="box_header">新增活动</div>*/}}
+                      {{/*<div class="editbox1" >*/}}
+                        {{/*<label class=" addlabel">*/}}
+                          {{/*<span>活动名称:</span>*/}}
+                          {{/*<input  id="" type="text" name="giftname" value="{{.input.giftname}}" class="put_text "><span class="text-error">{{.errmsg.giftname}}</span>*/}}
+                        {{/*</label>*/}}
+
+                        {{/*<label class=" addlabel">*/}}
+                          {{/*<span>原始数量:</span>*/}}
+                          {{/*<input  id="" type="text" name="quantity" value="{{.input.quantity}}" class="put_text ">*/}}
+                        {{/*</label>*/}}
+
+                        {{/*<label class=" addlabel">*/}}
+                          {{/*<span>已使用数量:</span>*/}}
+                          {{/*<input  id="" type="text" class="put_text ">*/}}
+                        {{/*</label>*/}}
+                        {{/**/}}
+                        {{/*<label class="addlabel ffname">*/}}
+                          {{/*<span>未使用数量:</span>*/}}
+                          {{/*<input  id="" type="text" class="put_text ">*/}}
+                        {{/*</label>*/}}
+                        {{/*<label class="addlabel applynumber">*/}}
+                          {{/*<span class="applytitle">最高概率:</span>*/}}
+                          {{/*<input  id="" type="text" name="oddstop" value="{{.input.oddstop}}" class="put_text ">*/}}
+                        {{/*</label>*/}}
+                        {{/*<label class="addlabel applynumber">*/}}
+                          {{/*<span class="applytitle">最低概率:</span>*/}}
+                          {{/*<input  id="" type="text" name="oddds" value="{{.input.odds}}" class="put_text ">*/}}
+                        {{/*</label>*/}}
+
+                        {{/**/}}
+                        {{/*<div class="op_btn">*/}}
+                          {{/*<button  type ="button"class="zy_button btncancel" onclick="javascript:history.back()">取消</button>*/}}
+                          {{/*<button  type="submit"  class="zy_button btnsave"><i class="icon-ok"></i> 提交</button>*/}}
+                        {{/*</div>*/}}
+                      {{/*</div>*/}}
+                    </div>
+                  </div>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
