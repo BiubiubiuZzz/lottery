@@ -1,3 +1,4 @@
 *.exe
 *.xlsl
 .idea/
+static/tmp/
