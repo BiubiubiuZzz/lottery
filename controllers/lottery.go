@@ -483,6 +483,8 @@ func (this *LotteryController) SaveGift() {
 		this.TplName = "Activity_settings.html"
 		return
 	}
+	Fee,_ :=this.GetFloat("fee",0.0)
+	gift.Fee = int64(float64(Fee) * float64(FAC))
 
 	odds, _ := this.GetFloat("odds", 0.0)
 	gift.Odds = int64(float64(odds) * float64(FACTOR))
