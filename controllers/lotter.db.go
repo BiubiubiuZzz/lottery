@@ -11,53 +11,54 @@ import (
 
 
 
-// func GetAddress() []*models.LuckybagLottoryAddress {
-// 	var address []*models.LuckybagLottoryAddress
-// 	o := orm.NewOrm()
-// 	o.Using("update")
-// 	_, err := o.Raw("SELECT distinct(logs.gift_name),luck.id,luck.phone,luck.name,luck.address,luck.email,luck.date FROM " +
-// 		" luckybag_lottory_gifts_logs as logs left JOIN " +
-// 		" luckybag_lottory_address as luck on luck.open_id=logs.open_id").QueryRows(&address)
-// 	if err != nil {
-// 		beego.Debug("[ADMIN REPORT] GET a address manager error:", err.Error())
-// 		return nil
-// 	}
-// 	beego.Debug("[ADMIN REPORT] get a AddressManager：", len(address))
-// 	return address
-// }
-
-//查询地址
-func GetAddress() []*models.LuckybagLottoryGiftsLogs {
-	var giftlogs []*models.LuckybagLottoryGiftsLogs
+func GetAddress() []*models.LuckybagLottoryAddress {
+	var address []*models.LuckybagLottoryAddress
 	o := orm.NewOrm()
 	o.Using("update")
-	_, err := o.Raw("SELECT distinct(gift_name),open_id FROM luckybag_lottory_gifts_logs").QueryRows(&giftlogs)
+	_, err := o.Raw("SELECT distinct(logs.gift_name),luck.id,luck.phone,luck.name,luck.address,luck.email,luck.date FROM " +
+		" luckybag_lottory_gifts_logs as logs left JOIN " +
+		" luckybag_lottory_address as luck on luck.open_id=logs.open_id").QueryRows(&address)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] GET a address manager error:", err.Error())
 		return nil
 	}
-	beego.Debug("[ADMIN REPORT] get a AddressManager：", len(giftlogs))
-	for i := 0; i <len(giftlogs); i++ {
-		o := orm.NewOrm()
-		o.Using("update")
-		var address *models.LuckybagLottoryAddress
-		logs := giftlogs[i]
-
-		err1 := o.Raw("SELECT * from luckybag_lottory_address where open_id =?",logs.OpenId).QueryRow(&address)
-		if err1 != nil{
-			beego.Debug("[ADMIN REPORT] get error:",err1)
-			return nil
-		}
-		logs.OpenId = address.OpenId
-		logs.Address = address.Address
-		logs.Name =address.Name
-		logs.Phone =address.Phone
-		logs.Email =address.Email
-		logs.AddressDate = address.Date
-	}
-
-	return giftlogs
+	beego.Debug("[ADMIN REPORT] get a AddressManager：", len(address))
+	return address
 }
+
+//查询地址
+
+//func GetAddress() []*models.LuckybagLottoryGiftsLogs {
+//	var giftlogs []*models.LuckybagLottoryGiftsLogs
+//	o := orm.NewOrm()
+//	o.Using("update")
+//	_, err := o.Raw("SELECT distinct(gift_name),open_id FROM luckybag_lottory_gifts_logs").QueryRows(&giftlogs)
+//	if err != nil {
+//		beego.Debug("[ADMIN REPORT] GET a address manager error:", err.Error())
+//		return nil
+//	}
+//	beego.Debug("[ADMIN REPORT] get a AddressManager：", len(giftlogs))
+//	for i := 0; i <len(giftlogs); i++ {
+//		o := orm.NewOrm()
+//		o.Using("update")
+//		var address *models.LuckybagLottoryAddress
+//		logs := giftlogs[i]
+//
+//		err1 := o.Raw("SELECT open_id,phone,name,email,date,address from luckybag_lottory_address where open_id =?",logs.OpenId).QueryRow(&address)
+//		if err1 != nil{
+//			beego.Debug("[ADMIN REPORT] get error:",err1)
+//			return nil
+//		}
+//		logs.OpenId = address.OpenId
+//		logs.Address = address.Address
+//		logs.Name =address.Name
+//		logs.Phone =address.Phone
+//		logs.Email =address.Email
+//		logs.AddressDate = address.Date
+//	}
+//
+//	return giftlogs
+//}
 
 //***注：所有QR表示抽奖码；
 //全部抽奖码显示
@@ -450,10 +451,10 @@ func AddAddress(address *models.LuckybagLottoryAddress) (id int64,err error) {
 
 
 //记录修改时间
-func LotteryGiftLogs(giftlogs *models.LotteryGiftsLogs) (id int64,err error) {
-	o := orm.NewOrm()
-	o.Using("update")
-	id,err = o.Insert(giftlogs)
-	return
-}
+//func LotteryGiftLogs(giftlogs *models.LotteryGiftsLogs) (id int64,err error) {
+//	o := orm.NewOrm()
+//	o.Using("update")
+//	id,err = o.Insert(giftlogs)
+//	return
+//}
 

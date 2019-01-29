@@ -11,7 +11,6 @@
             console.log("save span report...");
             var startTime = $("#start").val();
             var endTime = $("#end").val();
-            // var boardid = $("#boardid").val();
             var scope = $("input[type='radio'][name='scope']:checked").val();
             console.log("start:", startTime, " end:", endTime, "scope:", scope);
             if (startTime=="" || endTime=="" ){
@@ -21,10 +20,8 @@
             $.get(
                 "/rport/excel",
                 {
-                    {{/*state:{{.State}}+'',*/}}
                     start: startTime,
                     end: endTime,
-                    // boardid: boardid,
                     scope: scope
                 },
                 function(data){

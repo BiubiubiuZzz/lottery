@@ -14,7 +14,7 @@ func init() {
 func RegisterDB() {
 	maxIdle := 15
 	maxConn := 15
-	orm.RegisterModel(new(LotteryUser), new(LuckybagLottoryGifts),new(LuckybagLottoryAddress))
+	orm.RegisterModel(new(LotteryUser), new(LuckybagLottoryGifts),new(LuckybagLottoryAddress),new(LotteryGiftsLogs),new(LuckybagLottory))
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	err := orm.RegisterDataBase("default", "mysql", "root:123456@tcp(127.0.0.1:3306)/youbon?charset=utf8", maxIdle, maxConn)
 	if err != nil {

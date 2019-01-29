@@ -35,7 +35,8 @@
                       </form>
                       <br>
                       <div class="spantable">
-                        开始时间:<input id="start" type="text" class="put_date" > 结束时间 <input id="end" type="text" class="put_date"> <input type="radio" name="scope" value="addr">test</input>
+                        开始时间:<input id="start" type="text" class="put_date" > 结束时间 <input id="end" type="text" class="put_date">
+                          <input type="radio" name="scope" value="addr">test</input>
                         <button id="saveSpan" class="btn btn-primary">导出</button>
                       </div>
                     </div>
@@ -60,7 +61,7 @@
                             <td>{{$v.Email}}</td>
                             <td>{{$v.Phone}}</td>
                             <td>{{$v.Address}}</td>
-                            <td>{{$v.AddressDate|convertt}}</td>
+                            <td>{{$v.Date|convertt}}</td>
                             <td>
                               <span class="td_opt award_edit"><a href={{(printf  "/address/setting?id=%d" $v.Id )}} >编辑</a> </span>
                               <span class="td_opt award_del"><a href={{(printf  "/address/remove?id=%d" $v.Id )}}   > 删除</a></span>
@@ -73,14 +74,6 @@
                     </div>
 
                     <div class="page_div clearfix">
-                      {{/*<div class="page fix" >*/}}
-                        {{/*<a href="#" class="pre">上一页</a> */}}
-                        {{/*<a href="#" class="num cur">1</a> */}}
-                        {{/*<a href="#" class="num">2</a>*/}}
-                        {{/*......*/}}
-                        {{/*<a href="#" class="num">4</a>*/}}
-                        {{/*<a href="#" class="next">下一页</a>*/}}
-                      {{/*</div>*/}}
                     </div>
                   </div>
                 </div>

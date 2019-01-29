@@ -456,9 +456,11 @@ func (this *LotteryController) SaveGift() {
 		this.Redirect("/login", 302)
 		return
 	}
+
+
 	edit, _ := this.GetBool("edit", false)
 	var gift models.LuckybagLottoryGifts
-	var giftlogs models.LotteryGiftsLogs
+
 
 	uid, _ := this.GetSession("uid").(int)
 	fmt.Println(uid)
@@ -466,7 +468,7 @@ func (this *LotteryController) SaveGift() {
 	//根据id查询deliver_id
 	deliverID := GetDeliverIDByUid(uid)
 	gift.GiftName = this.GetString("giftname", "")
-	giftlogs.GiftName = gift.GiftName
+
 
 	if gift.GiftName == "" {
 		this.Data["msg"] = "请输入商品名称"
@@ -474,7 +476,7 @@ func (this *LotteryController) SaveGift() {
 		return
 	}
 	gift.Quantity, _ = this.GetInt64("quantity", 0)
-	giftlogs.Quantity,_ = this.GetInt64("quantity", 0)
+
 
 	if gift.Quantity == 0 {
 		this.Data["msg"] = "请输入商品数量"
@@ -489,10 +491,8 @@ func (this *LotteryController) SaveGift() {
 
 	gift.Method, _ = this.GetInt64("method")
 	gift.Date = time.Now().Unix()
-	giftlogs.Date =gift.Date
 
 	gift.DeliverId = deliverID
-	giftlogs.DeliverId = deliverID
 
 	//如果设置的概率为 0 ， 则设置该记录无效
 	if gift.Odds == 0 {
@@ -532,15 +532,23 @@ func (this *LotteryController) SaveGift() {
 		id, err := this.GetInt64("id", -1)
 		if id != -1 && err == nil {
 			gift.Id = id
+			//记录商品数量修改logs
+			o := orm.NewOrm()
+			o.Using("update")
+			giftslogs := new(models.LotteryGiftsLogs)
+			giftslogs.GiftName = gift.GiftName
+			giftslogs.DeliverId = gift.DeliverId
+			giftslogs.Quantity = gift.Quantity
+			giftslogs.Date = gift.Date
+			giftslogs.GiftId = gift.Id
+			o.Insert(giftslogs)
 
 			err = this.modifyGift(int(deliverID), &gift)
-			//err = EditLotteryGifts(&gift)
+
 
 			if err == nil {
 				this.Data["success"] = 1
 				this.TplName = "Successful_editing.html"
-				//
-				//this.Redirect("/Prize/setting", 302")
 			} else {
 				this.Data["success"] = 0
 				this.TplName = "Successful_editing.html"
@@ -550,6 +558,8 @@ func (this *LotteryController) SaveGift() {
 
 
 }
+
+
 
 //修改gift 的时候概率处理算法
 func (this *LotteryController) removeGift(deliverID int, recordID int64) error {
