@@ -61,7 +61,6 @@ func (this *Pager) ToString() string{//str2html
 	}else {
 		totalpage = this.Totalnum / this.Pagesize
 	}
-	//fmt.Println("总页面 = ", totalpage)
 	if totalpage < linknum {
 		from = 1
 		to = totalpage

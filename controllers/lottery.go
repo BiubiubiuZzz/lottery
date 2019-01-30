@@ -624,8 +624,6 @@ func (this *LotteryController) SaveGift() {
 
 }
 
-
-
 //修改gift 的时候概率处理算法
 func (this *LotteryController) removeGift(deliverID int, recordID int64) error {
 	allGifts, _ := GetLotteryGiftByDeliverID(deliverID)
@@ -716,6 +714,24 @@ func (this *LotteryController) RemoveGift() {
 	}
 
 }
+
+//重置按钮
+func (this *LotteryController) GetReset() {
+	this.TplName = "success.html"
+		o := orm.NewOrm()
+		o.Using("update")
+		qr := models.LuckybagLottory{}
+		qr.Method = 0
+		qr.UsedDate = 0
+		beego.Info(qr)
+		id ,err := o.Insert(&qr)
+		if err != nil{
+			fmt.Println("insert err :", err.Error())
+			return
+		}
+		beego.Info("insert success id= ",id,qr)
+	}
+
 
 //点击按钮导出
 func (this *LotteryController) Getqr() {

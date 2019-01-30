@@ -41,4 +41,6 @@ func init() {
     beego.Router("/redpack/result",&controllers.LotteryController{},"post:GetRedPack")
 	beego.Router("/redpackquery",&controllers.LotteryController{},"*:RedPackQuery")
 
+	beego.Router("/reset",&controllers.LotteryController{},"*:GetReset")
+
 }

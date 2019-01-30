@@ -4,7 +4,6 @@ import (
 	"Lottery/models"
 	"fmt"
 	"strconv"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
@@ -148,7 +147,7 @@ func GetQRcode(id string) []*models.LuckybagLottory {
 	return QR
 }
 
-//查询use使用总数
+//查询实物使用总数
 func GetGiftUsedByGiftID(giftID int64) int64 {
 	var result int64 = 0
 	o := orm.NewOrm()
@@ -157,6 +156,16 @@ func GetGiftUsedByGiftID(giftID int64) int64 {
 	o.Raw(cond).QueryRow(&result)
 	return result
 }
+//查询红包使用总数
+//func GetGiftUsedByRedPackGiftId(giftID int64) int64 {
+//	var red int64 =0
+//	o := orm.NewOrm()
+//	o.Using("update")
+//	cond := fmt.Sprintf("select count(*) as redpackused from luckybag_lottory_redpack where gift_id = %d ",giftID)
+//	o.Raw(cond).QueryRows(&red)
+//	return red
+//}
+
 
 //显示剩余数量
 func GetLeftQuantity(giftID int64) int64 {
@@ -502,4 +511,7 @@ func AddAddress(address *models.LuckybagLottoryAddress) (id int64,err error) {
 	id,err = o.Insert(address)
 	return
 }
+
+
+
 
