@@ -19,7 +19,6 @@ func init() {
 	beego.Router("/Winning/Query",&controllers.LotteryController{},"post:WinnQuery")
 
 	beego.Router("/Prize/setting",&controllers.LotteryController{},"get:GetPrize")
-	//beego.Router("/Prize/setting",&controllers.LotteryController{},"get:GetPrize")
 	beego.Router("/Prize/setting",&controllers.LotteryController{},"post:GetPrize")
 	beego.Router("/Prize/settingQuery",&controllers.LotteryController{},"post:SettingQuery")
 
@@ -30,10 +29,16 @@ func init() {
     beego.Router("/activity/setting",&controllers.LotteryController{},"*:Setting")
 	beego.Router("/activity/SaveGift",&controllers.LotteryController{},"*:SaveGift")
 	beego.Router("/activity/remove",&controllers.LotteryController{},"*:RemoveGift")
+	beego.Router("/activity/editesetting",&controllers.LotteryController{},"*:EditeSetting")
 
     beego.Router("/address/setting",&controllers.LotteryController{},"*:SettingAddress")
     beego.Router("/address/save",&controllers.LotteryController{},"*:SaveAddress")
     beego.Router("/address/remove",&controllers.LotteryController{},"*:RemoveAddress")
 
     beego.Router("/rport/excel",&controllers.LotteryController{},"get:Getqr")
+
+	beego.Router("/redpack/result",&controllers.LotteryController{},"get:GetRedPack")
+    beego.Router("/redpack/result",&controllers.LotteryController{},"post:GetRedPack")
+	beego.Router("/redpackquery",&controllers.LotteryController{},"*:RedPackQuery")
+
 }

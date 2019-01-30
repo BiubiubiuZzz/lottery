@@ -73,13 +73,9 @@
                             {{else }}
                             <td class="aSmallclass">无</td>
                             {{end}}
-                            {{/*{{range $k,$v := .aaa}}*/}}
-                          {{/*<tr>*/}}
-                            {{/*<td>{{$v.GiftId}}</td>*/}}
-                            {{/*{{end}}*/}}
                             <td>
 
-                              <span class="td_opt award_edit"><a href={{(printf  "/activity/setting?id=%d" $v.Id )}} >编辑</a> </span>
+                              <span class="td_opt award_edit"><a href={{(printf  "/activity/editesetting?id=%d" $v.Id )}} >编辑</a> </span>
                               <span class="td_opt award_del"><a href={{(printf  "/activity/remove?id=%d" $v.Id )}}   > 删除</a></span>
                           </tr>
                         {{end}}

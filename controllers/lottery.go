@@ -142,7 +142,7 @@ func (this *LotteryController) GetWinning() {
 
 }
 
-//活动设置
+//活动显示
 func (this *LotteryController) GetPrize() {
 	Logined := this.GetSession("login")
 	if Logined != true {
@@ -188,6 +188,45 @@ func (this *LotteryController) GetAddress() {
 	this.Data["lists"] = list
 	this.TplName = "Address_management.html"
 
+}
+
+//显示微信红包
+func (this *LotteryController) GetRedPack()  {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	list := RedPack()
+	if len(list) > 0{
+		var display []models.LuckybagLottoryRedpackDisplay
+		for _,o := range list{
+			var t models.LuckybagLottoryRedpackDisplay
+			t.GiftName = o.GiftName
+			t.Fee =float64(float64(o.Fee) / float64(FAC))
+			t.Code = o.Code
+			t.ErrMsg =o.ErrMsg
+			display = append(display,t)
+		}
+		this.Data["redlist"] = display
+	}
+	this.TplName ="redpack.html"
+}
+
+//code查询
+func (this *LotteryController) RedPackQuery()  {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	code := this.Input().Get("code")
+	if code != "" {
+		list := RedPackQuery(code)
+		this.Data["redlist"] = list
+	}
+	this.Data["radValue"] = code
+	this.TplName ="redpack.html"
 }
 
 
@@ -278,7 +317,7 @@ func (this *LotteryController) RemoveAddress() {
 }
 
 
-//编辑修改活动
+//添加活动--Show original quantity
 func (this *LotteryController) Setting() {
 	Logined := this.GetSession("login")
 	if Logined != true {
@@ -304,7 +343,33 @@ func (this *LotteryController) Setting() {
 	}
 	//this.Data["activitylists"] =list
 	this.TplName = "Activity_settings.html"
+}
 
+//编辑活动---Show remaining quantity
+func (this *LotteryController) EditeSetting() {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	id, err := this.GetInt("id", -1)
+	this.Data["edit"] = false
+	if id != -1 && err == nil {
+		gift, err := GetLotteryGiftByID(id)
+		if err == nil {
+			this.Data["giftname"] = gift.GiftName
+			this.Data["fee"] = float64(float64(gift.Fee) / float64(FAC))
+			this.Data["quantity"] = GetLeftQuantity(gift.Id)
+			this.Data["odds"] = float64(float64(gift.Odds) / float64(FACTOR))
+			this.Data["valid"] = gift.Valid
+			this.Data["method"] = gift.Method
+			this.Data["edit"] = true
+			this.Data["id"] = id
+		}else {
+			this.Data["msg"] = err.Error()
+		}
+	}
+	this.TplName = "Activity_EditeSettings.html"
 }
 
 //动态计算概率

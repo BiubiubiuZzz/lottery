@@ -73,7 +73,63 @@ func GetQR()[]*models.LuckybagLottory  {
 	return QR
 }
 
+//显示红包
+func RedPack() []*models.LuckybagLottoryRedpack  {
+	var red []*models.LuckybagLottoryRedpack
+	o := orm.NewOrm()
+	o.Using("update")
+	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,gift.gift_name from luckybag_lottory_redpack as red left join luckybag_lottory_gifts as gift on red.gift_id=gift.id").QueryRows(&red)
+	if err != nil{
+		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
+		return nil
+	}
+	beego.Debug("[ADMIN REPORT] get redpack:",len(red))
+	return red
+}
+
+//查询code显示red result
+func RedPackQuery(code string) []*models.LuckybagLottoryRedpack   {
+	var Rcode []*models.LuckybagLottoryRedpack
+	o := orm.NewOrm()
+	o.Using("update")
+	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,gift.gift_name from luckybag_lottory_redpack as red " +
+		" left join luckybag_lottory_gifts as gift on red.gift_id=gift.id where red.code = ? ",code).QueryRows(&Rcode)
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
+		return nil
+	}
+	beego.Debug("[ADMNIN REPORT] get a recode:",code)
+	return Rcode
+}
+
+//func RedPack() []*models.LuckybagLottoryRedpack  {
+//	var red []*models.LuckybagLottoryRedpack
+//	o := orm.NewOrm()
+//	o.Using("update")
+//	_,err := o.Raw("SELECT gift_id,fee,code from luckybag_lottory_redpack").QueryRows(&red)
+//	if err != nil{
+//		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
+//		return nil
+//	}
+//	beego.Debug("[ADMIN REPORT] get redpack:",len(red))
+//	for i := 0; i <len(red); i++{
+//		o := orm.NewOrm()
+//		o.Using("update")
+//		var gift *models.LuckybagLottoryGifts
+//		redpack := red[i]
+//
+//		err1 := o.Raw("select id,gift_name from luckybag_lottory_gifts where id=? ",redpack.GiftId).QueryRow(&gift)
+//		if err1 != nil{
+//			beego.Debug("[ADMIN REPORT] get error1:",err1)
+//			return nil
+//		}
+//		redpack.GiftId = gift.Id
+//	}
+//	return red
+//}
 //Qr通过Id 查询
+
+
 func GetQRcode(id string) []*models.LuckybagLottory {
 	var QR []*models.LuckybagLottory
 	o := orm.NewOrm()

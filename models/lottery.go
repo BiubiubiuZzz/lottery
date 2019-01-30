@@ -75,6 +75,19 @@ type LuckybagLottoryRedpack struct {
 	OpenId    string
 	ErrMsg    string
 	Code      string
+	GiftName  string `orm:"-"`
+}
+
+type LuckybagLottoryRedpackDisplay struct {
+	Id        int64
+	RedPackId string
+	DeliverId int64
+	Fee       float64
+	GiftId    int64
+	OpenId    string
+	ErrMsg    string
+	Code      string
+	GiftName  string `orm:"-"`
 }
 
 type LuckybagLottory struct {
