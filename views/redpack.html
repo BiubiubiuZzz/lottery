@@ -48,6 +48,7 @@
                                         <th width="20%">中奖奖品名称</th>
                                         <th width="20%">抽奖编码</th>
                                         <th width="20%">是否发送</th>
+                                        <th width="20%">时间</th>
                                     </tr>
                                     {{range $k,$v := .redlist}}
                                         <tr>
@@ -55,6 +56,7 @@
                                             <td>{{$v.GiftName}}</td>
                                             <td>{{$v.Code}}</td>
                                             <td>{{$v.ErrMsg}}</td>
+                                            <td>{{$v.Date|convertt}}</td>
                                         </tr>
                                     {{end}}
                                     </tbody>

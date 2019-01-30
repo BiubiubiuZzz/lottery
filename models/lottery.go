@@ -75,6 +75,7 @@ type LuckybagLottoryRedpack struct {
 	OpenId    string
 	ErrMsg    string
 	Code      string
+	Date	  int64
 	GiftName  string `orm:"-"`
 }
 
@@ -87,6 +88,7 @@ type LuckybagLottoryRedpackDisplay struct {
 	OpenId    string
 	ErrMsg    string
 	Code      string
+	Date	  int64
 	GiftName  string `orm:"-"`
 }
 

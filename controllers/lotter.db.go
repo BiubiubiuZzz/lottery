@@ -77,7 +77,7 @@ func RedPack() []*models.LuckybagLottoryRedpack  {
 	var red []*models.LuckybagLottoryRedpack
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,gift.gift_name from luckybag_lottory_redpack as red left join luckybag_lottory_gifts as gift on red.gift_id=gift.id").QueryRows(&red)
+	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,red.date,gift.gift_name from luckybag_lottory_redpack as red left join luckybag_lottory_gifts as gift on red.gift_id=gift.id").QueryRows(&red)
 	if err != nil{
 		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
 		return nil
@@ -91,7 +91,7 @@ func RedPackQuery(code string) []*models.LuckybagLottoryRedpack   {
 	var Rcode []*models.LuckybagLottoryRedpack
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,gift.gift_name from luckybag_lottory_redpack as red " +
+	_,err := o.Raw("SELECT red.date,red.fee,red.code,red.err_msg,gift.gift_name from luckybag_lottory_redpack as red " +
 		" left join luckybag_lottory_gifts as gift on red.gift_id=gift.id where red.code = ? ",code).QueryRows(&Rcode)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
@@ -511,6 +511,14 @@ func AddAddress(address *models.LuckybagLottoryAddress) (id int64,err error) {
 	id,err = o.Insert(address)
 	return
 }
+
+//重置语句--暂时不用
+//func Reset(Id *models.LuckybagLottory) (err error) {
+//	o := orm.NewOrm()
+//	o.Using("upadte")
+//	_,err = o.Update(Id,"Method","UsedDate")
+//	return
+//}
 
 
 

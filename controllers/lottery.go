@@ -72,7 +72,7 @@ func (this *LotteryController) QueryById() {
 	}
 	this.Data["queryValue"] = Id
 	this.Data["pagebar"] = this.pager.ToString()
-	this.TplName = "QRcode_query.html"
+	this.TplName = "QR_query.html"
 
 }
 
@@ -206,6 +206,7 @@ func (this *LotteryController) GetRedPack()  {
 			t.Fee =float64(float64(o.Fee) / float64(FAC))
 			t.Code = o.Code
 			t.ErrMsg =o.ErrMsg
+			t.Date = o.Date
 			display = append(display,t)
 		}
 		this.Data["redlist"] = display
@@ -717,21 +718,29 @@ func (this *LotteryController) RemoveGift() {
 
 //重置按钮
 func (this *LotteryController) GetReset() {
-	this.TplName = "success.html"
-		o := orm.NewOrm()
-		o.Using("update")
-		qr := models.LuckybagLottory{}
-		qr.Method = 0
-		qr.UsedDate = 0
-		beego.Info(qr)
-		id ,err := o.Insert(&qr)
-		if err != nil{
-			fmt.Println("insert err :", err.Error())
-			return
-		}
-		beego.Info("insert success id= ",id,qr)
-	}
+	o := orm.NewOrm()
+	o.Using("update")
+	var red *models.LuckybagLottory
+	id, err := this.GetInt64("id", -1)
+	if id != -1 && err == nil {
+		err := o.Raw("UPDATE `luckybag_lottory` SET `method` = 0, `used_date` = 0 WHERE `id` = ?", id).QueryRow(&red)
 
+		// var reset models.LuckybagLottory
+		//  id ,err := this.GetInt64("id",-1)
+		//  if id != -1 && err == nil{
+		//  	reset.Id = id
+		//  	reset.Method = 0
+		//  	reset.UsedDate = 0
+		//  	err = Reset(&reset)
+		if err == nil {
+			this.Data["success"] = 0
+			this.TplName = "success.html"
+		} else {
+			this.Data["success"] = 1
+			this.TplName = "success.html"
+		}
+	}
+}
 
 //点击按钮导出
 func (this *LotteryController) Getqr() {
