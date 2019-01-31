@@ -61,13 +61,11 @@
                             <th class="aInterface" width="15%">QRcode创建时间</th>
                             <th class="aType" width="15%">使用时间</th>
                             <th class="aSmallclass" width="10%">物品类型</th>
-                            <th class ="aSmallclass" width="10%">是否重置</th>
                           </tr>
                           {{range $k,$v := .qrlist}}
                           <tr>
                             <td class="aClass">{{$v.Id}}</td>
                             <td class="aType">{{$v.Qx}}</td>
-                            {{/*<td class="aType">{{$v.GiftName}}</td>*/}}
                             <td class="aInterface">{{$v.Url}}</td>
                             <td class="aSmallclass">{{$v.CreatedDate|convertt}}</td>
                             {{if eq $v.UsedDate 0}}
@@ -82,9 +80,6 @@
                             {{else }}
                             <td class="aSmallclass">无</td>
                             {{end}}
-                            <td class="aSmallclass">
-                              <span class="td_opt award_edit"><a href={{(printf  "/reset?id=%d" $v.Id )}}>重置</a> </span>
-                            </td>
                           </tr>
                         {{end}}
                         </tbody>
