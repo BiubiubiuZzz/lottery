@@ -149,30 +149,34 @@ func (this *LotteryController) GetPrize() {
 		this.Redirect("/login", 302)
 		return
 	}
-	list := GetActivity()
+	uid,_ := this.GetSession("uid").(int)
+	fmt.Println(uid)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetActivity(deliverID)
+
 	if len(list) > 0 {
-		var display []models.LuckybagLottoryGiftsDisplay
-		for _, o := range list {
-			var t models.LuckybagLottoryGiftsDisplay
-			t.Id = o.Id
-			t.DeliverId = o.DeliverId
-			t.GiftName = o.GiftName
-			t.GiftPic = o.GiftPic
-			t.Fee = float64(float64(o.Fee) / float64(FAC))
-			t.Odds = float64(float64(o.Odds) / float64(FACTOR))
-			t.OddsBase = o.OddsBase
-			t.OddsTop = o.OddsTop
-			t.Valid = o.Valid
-			t.Method = o.Method
-			t.Quantity = o.Quantity
-			t.Date = o.Date
-			t.Used = o.Used
-			t.LeftQuantity = o.LeftQuantity
-			t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
-			display = append(display, t)
+			var display []models.LuckybagLottoryGiftsDisplay
+			for _, o := range list {
+				var t models.LuckybagLottoryGiftsDisplay
+				t.Id = o.Id
+				t.DeliverId = o.DeliverId
+				t.GiftName = o.GiftName
+				t.GiftPic = o.GiftPic
+				t.Fee = float64(float64(o.Fee) / float64(FAC))
+				t.Odds = float64(float64(o.Odds) / float64(FACTOR))
+				t.OddsBase = o.OddsBase
+				t.OddsTop = o.OddsTop
+				t.Valid = o.Valid
+				t.Method = o.Method
+				t.Quantity = o.Quantity
+				t.Date = o.Date
+				t.Used = o.Used
+				t.LeftQuantity = o.LeftQuantity
+				t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
+				display = append(display, t)
+			}
+			this.Data["activitylists"] = display
 		}
-		this.Data["activitylists"] = display
-	}
 
 	this.TplName = "Prize_setting.html"
 }
@@ -254,11 +258,13 @@ func (this *LotteryController) SettingAddress() {
 	this.Data["edit"] = false
 	if id != -1 && err == nil{
 		address,err := GetAddressById(id)
+
 		if err == nil {
 			this.Data["name"] = address.Name
 			this.Data["phone"] = address.Phone
 			this.Data["email"] = address.Email
 			this.Data["address"] = address.Address
+			this.Data["expressno"] = address.ExpressNo
 			this.Data["edit"] =true
 			this.Data["id"] = id
 		}
@@ -276,11 +282,42 @@ func (this *LotteryController) SaveAddress() {
 	}
 	edit,_ := this.GetBool("edit",false)
 	var address models.LuckybagLottoryAddress
+	var expressno models.LuckybagLottoryGiftsLogs //修改单号
 
-	address.Name = this.GetString("name")
-	address.Phone = this.GetString("phone")
-	address.Email = this.GetString("email")
-	address.Address = this.GetString("address")
+	address.Name = this.GetString("name","")
+	if address.Name == ""{
+		this.Data["msg"] = "请输入姓名"
+		this.TplName = "Address_userEdit.html"
+		return
+	}
+	address.Phone = this.GetString("phone","")
+	if address.Phone == ""{
+		this.Data["msg"] = "请输入电话"
+		this.TplName = "Address_userEdit.html"
+		return
+
+	}
+	address.Email = this.GetString("email","")
+	if address.Email == ""{
+		this.Data["msg"] = "请输入邮箱"
+		this.TplName = "Address_userEdit.html"
+		return
+
+	}
+	address.Address = this.GetString("address","")
+	if address.Address == ""{
+		this.Data["msg"] = "请输入地址"
+		this.TplName = "Address_userEdit.html"
+		return
+
+	}
+	expressno.ExpressNo = this.GetString("expressno","")
+	if expressno.ExpressNo == ""{
+		this.Data["msg"] = "请输入快递单号"
+		this.TplName = "Address_userEdit.html"
+		return
+
+	}
 
 	if edit == false{
 		_,err := AddAddress(&address)
@@ -290,9 +327,11 @@ func (this *LotteryController) SaveAddress() {
 			this.TplName ="Address_userEdit.html"
 		}
 	} else {
+
 		id ,err := this.GetInt64("id",-1)
 		if id != -1 && err ==nil{
 			address.Id =id
+			address.ExpressNo =expressno.ExpressNo
 			err = EditAddress(&address)
 			if err == nil{
 				this.Data["success"] = 1
@@ -465,6 +504,10 @@ func (this *LotteryController) modifyGift(deliverID int, gift *models.LuckybagLo
 	}
 
 	allGifts[i].Quantity = gift.Quantity
+	//如果修改概率，update为1，其他修改则不变
+	if allGifts[i].Odds != gift.Odds{
+		allGifts[i].Updated = 1
+	}
 	allGifts[i].Odds = gift.Odds
 	allGifts[i].Valid = gift.Valid
 	allGifts[i].Method = gift.Method
@@ -533,7 +576,6 @@ func (this *LotteryController) SaveGift() {
 		return
 	}
 
-
 	edit, _ := this.GetBool("edit", false)
 	var gift models.LuckybagLottoryGifts
 
@@ -545,14 +587,12 @@ func (this *LotteryController) SaveGift() {
 	deliverID := GetDeliverIDByUid(uid)
 	gift.GiftName = this.GetString("giftname", "")
 
-
 	if gift.GiftName == "" {
 		this.Data["msg"] = "请输入商品名称"
 		this.TplName = "Activity_settings.html"
 		return
 	}
 	gift.Quantity, _ = this.GetInt64("quantity", 0)
-
 
 	if gift.Quantity == 0 {
 		this.Data["msg"] = "请输入商品数量"
@@ -622,7 +662,6 @@ func (this *LotteryController) SaveGift() {
 			o.Insert(giftslogs)
 
 			err = this.modifyGift(int(deliverID), &gift)
-
 
 			if err == nil {
 				this.Data["success"] = 1
@@ -798,10 +837,192 @@ func (this *LotteryController) Getqr() {
 		return
 	}
 
+	if scope == "used"{
+		QRusedRow := QRused(startTime,endTime)
+		QRusedFile := GenQRuseExcel(QRusedRow,startTime,endTime)
+		beego.Debug("[ADMIN REPORT] get a qrused file:",QRusedFile)
+		this.Ctx.WriteString(QRusedFile)
+		return
+	}
+
+	if scope == "notused"{
+		QRNotUsedRow := QRNotUsed(startTime,endTime)
+		QRNotusedFile := GenQRNotuseExcel(QRNotUsedRow,startTime,endTime)
+		beego.Debug("[ADMIN REPORT] get a qrNotused file:",QRNotusedFile)
+		this.Ctx.WriteString(QRNotusedFile)
+		return
+	}
+
 	this.Ctx.WriteString("empty")
 	return
 
 }
+//qr使用
+func GenQRuseExcel(data []*models.LuckybagLottory, startTime, endTime int64) string {
+	var file *xlsx.File
+	var sheet *xlsx.Sheet
+	var row *xlsx.Row
+	var timespan *xlsx.Cell
+	var id *xlsx.Cell
+	var qx *xlsx.Cell
+	var url *xlsx.Cell
+	var createddate *xlsx.Cell
+	var useddate *xlsx.Cell
+	var method *xlsx.Cell
+	var err error
+
+	file = xlsx.NewFile()
+	sheet, err = file.AddSheet("中奖结果")
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] new xls file err:", err.Error())
+		return ""
+	}
+	row = sheet.AddRow()
+	timespan = row.AddCell()
+	timespan.Value = "时间段统计"
+	method = row.AddCell()
+	method.Value = "实物类型(1:红包;2:实物)"
+	id = row.AddCell()
+	id.Value = "Id"
+	qx = row.AddCell()
+	qx.Value = "抽奖编码"
+	url = row.AddCell()
+	url.Value = "二维码链接"
+	createddate = row.AddCell()
+	createddate.Value = "创建时间"
+	useddate = row.AddCell()
+	useddate.Value = "使用时间"
+
+	t1 := time.Unix(startTime, 0)
+	t2 := time.Unix(endTime, 0)
+	start := t1.Format("2006/01/02 15:04:05")
+	end := t2.Format("2006/01/02 15:04:05")
+	selectedTime := start + "-" + end
+
+	for i := 0; i < len(data); i++ {
+		row = sheet.AddRow()
+		timespan = row.AddCell()
+		timespan.Value = selectedTime
+
+		method = row.AddCell()
+		method.Value = strconv.FormatInt(data[i].Method, 10)
+
+		id = row.AddCell()
+		id.Value = strconv.FormatInt(data[i].Id, 10)
+
+		qx = row.AddCell()
+		qx.Value = data[i].Qx
+
+		url = row.AddCell()
+		url.Value = data[i].Url
+
+		t3 := time.Unix(data[i].CreatedDate, 0)
+		creadtime := t3.Format("2006/01/02 15:04:05")
+
+		createddate = row.AddCell()
+		createddate.Value = creadtime
+
+		t4 := time.Unix(data[i].UsedDate, 0)
+		usedtime := t4.Format("2006/01/02 15:04:05")
+
+		useddate = row.AddCell()
+		useddate.Value = usedtime
+
+	}
+	fileName := "./static/tmp/qr/qr_" + strconv.FormatInt(time.Now().Unix(), 10) + ".xlsx"
+	err = file.Save(fileName)
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] save span report err:", err.Error())
+		return ""
+	}
+	beego.Debug("[ADMIN REPORT] save span report excel file ok!filename:", fileName)
+	return fileName[1:]
+
+}
+
+//qr未使用
+func GenQRNotuseExcel(data []*models.LuckybagLottory, startTime, endTime int64) string {
+	var file *xlsx.File
+	var sheet *xlsx.Sheet
+	var row *xlsx.Row
+	var timespan *xlsx.Cell
+	var id *xlsx.Cell
+	var qx *xlsx.Cell
+	var url *xlsx.Cell
+	var createddate *xlsx.Cell
+	var useddate *xlsx.Cell
+	var method *xlsx.Cell
+	var err error
+
+	file = xlsx.NewFile()
+	sheet, err = file.AddSheet("中奖结果")
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] new xls file err:", err.Error())
+		return ""
+	}
+	row = sheet.AddRow()
+	timespan = row.AddCell()
+	timespan.Value = "时间段统计"
+	method = row.AddCell()
+	method.Value = "实物类型(1:红包;2:实物)"
+	id = row.AddCell()
+	id.Value = "Id"
+	qx = row.AddCell()
+	qx.Value = "抽奖编码"
+	url = row.AddCell()
+	url.Value = "二维码链接"
+	createddate = row.AddCell()
+	createddate.Value = "创建时间"
+	useddate = row.AddCell()
+	useddate.Value = "使用时间"
+
+	t1 := time.Unix(startTime, 0)
+	t2 := time.Unix(endTime, 0)
+	start := t1.Format("2006/01/02 15:04:05")
+	end := t2.Format("2006/01/02 15:04:05")
+	selectedTime := start + "-" + end
+
+	for i := 0; i < len(data); i++ {
+		row = sheet.AddRow()
+		timespan = row.AddCell()
+		timespan.Value = selectedTime
+
+		method = row.AddCell()
+		method.Value = strconv.FormatInt(data[i].Method, 10)
+
+		id = row.AddCell()
+		id.Value = strconv.FormatInt(data[i].Id, 10)
+
+		qx = row.AddCell()
+		qx.Value = data[i].Qx
+
+		url = row.AddCell()
+		url.Value = data[i].Url
+
+		t3 := time.Unix(data[i].CreatedDate, 0)
+		creadtime := t3.Format("2006/01/02 15:04:05")
+
+		createddate = row.AddCell()
+		createddate.Value = creadtime
+
+		t4 := time.Unix(data[i].UsedDate, 0)
+		usedtime := t4.Format("2006/01/02 15:04:05")
+
+		useddate = row.AddCell()
+		useddate.Value = usedtime
+
+	}
+	fileName := "./static/tmp/qr/qr_" + strconv.FormatInt(time.Now().Unix(), 10) + ".xlsx"
+	err = file.Save(fileName)
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] save span report err:", err.Error())
+		return ""
+	}
+	beego.Debug("[ADMIN REPORT] save span report excel file ok!filename:", fileName)
+	return fileName[1:]
+
+}
+
 
 //中奖结果导出
 func GenWinnerExcel(data []*models.LuckybagLottoryGiftsLogs, startTime, endTime int64) string {

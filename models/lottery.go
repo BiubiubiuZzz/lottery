@@ -9,6 +9,7 @@ type LuckybagLottoryAddress struct {
 	Phone    string
 	Address  string
 	Date     int64
+	ExpressNo string
 }
 
 type LuckybagLottoryGifts struct {
@@ -24,6 +25,7 @@ type LuckybagLottoryGifts struct {
 	Method       int64
 	Quantity     int64 //数量
 	Date         int64
+	Updated		int64
 	Used         int64 `orm:"-"` //used number
 	LeftQuantity int64 `orm:"-"`
 	Total         int64 `orm:"-"` //总数
@@ -52,6 +54,7 @@ type LuckybagLottoryGiftsLogs struct {
 	DeliverId int64
 	GiftId    int64
 	GiftName  string
+	ExpressNo string
 	OpenId    string
 	Code      string
 	Date      int64
@@ -125,5 +128,6 @@ type LotteryGiftsLogs struct {
 	GiftName	string
 	Quantity	int64
 	Date		int64
+
 
 }

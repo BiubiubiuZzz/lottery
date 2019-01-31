@@ -14,7 +14,7 @@ func GetAddress() []*models.LuckybagLottoryAddress {
 	var address []*models.LuckybagLottoryAddress
 	o := orm.NewOrm()
 	o.Using("update")
-	_, err := o.Raw("SELECT distinct(logs.gift_name),luck.id,luck.phone,luck.name,luck.address,luck.email,luck.date FROM " +
+	_, err := o.Raw("SELECT distinct(logs.gift_name),logs.express_no,luck.id,luck.phone,luck.name,luck.address,luck.email,luck.date FROM " +
 		" luckybag_lottory_gifts_logs as logs left JOIN " +
 		" luckybag_lottory_address as luck on luck.open_id=logs.open_id").QueryRows(&address)
 	if err != nil {
@@ -192,13 +192,13 @@ func GetLeftQuantity(giftID int64) int64 {
 	return leftQuantity
 }
 
-//显示活动设置的数据
-func GetActivity() []*models.LuckybagLottoryGifts {
+//显示活动设置的数据--根据用户deliver_id显示
+func GetActivity(deliverID int64) []*models.LuckybagLottoryGifts {
 	var AC []*models.LuckybagLottoryGifts
 	var result []*models.LuckybagLottoryGifts = nil
 	o := orm.NewOrm()
 	o.Using("update")
-	_, err := o.Raw("select * from luckybag_lottory_gifts").QueryRows(&AC)
+	_, err := o.Raw("select * from luckybag_lottory_gifts where deliver_id =? ",deliverID).QueryRows(&AC)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] GET a error:", err.Error())
 		return nil
@@ -331,7 +331,7 @@ func RemoveLotteryGiftByID(id int64) error {
 	return err
 }
 
-//更新活动
+//添加活动活动
 func AddLotteryGifts(gitf *models.LuckybagLottoryGifts) (id int64, err error) {
 	o := orm.NewOrm()
 	o.Using("update")
@@ -357,7 +357,7 @@ func GetDeliverIDByUid(uid int) int64 {
 	return -1
 }
 
-//编辑/更新活动
+//更新活动
 func EditLotteryGifts(gitf *models.LuckybagLottoryGifts) (err error) {
 	o := orm.NewOrm()
 	o.Using("update")
@@ -470,7 +470,10 @@ func GetAddressById(id int) (*models.LuckybagLottoryAddress , error)  {
 	var address models.LuckybagLottoryAddress
 	o := orm.NewOrm()
 	o.Using("update")
-	criter := fmt.Sprintf("select * from luckybag_lottory_address where id=%d",id)
+	criter := fmt.Sprintf("SELECT distinct(logs.gift_name),logs.express_no,luck.id," +
+		"luck.phone,luck.name,luck.address,luck.email,luck.date " +
+		" FROM luckybag_lottory_gifts_logs as logs left JOIN  " +
+		"luckybag_lottory_address as luck on luck.open_id=logs.open_id where luck.id=%d",id)
 	err := o.Raw(criter).QueryRow(&address)
 
 	if err != nil{
@@ -479,6 +482,20 @@ func GetAddressById(id int) (*models.LuckybagLottoryAddress , error)  {
 	}
 	return &address,err
 }
+
+//func GetGiftLogsExpressNo(openid string) (*models.LuckybagLottoryGiftsLogs,error)  {
+//	var expressno models.LuckybagLottoryGiftsLogs
+//	o := orm.NewOrm()
+//	o.Using("update")
+//	criter := fmt.Sprintf("select * from luckbag_lottory_address where open_id = ?",openid)
+//	err := o.Raw(criter).QueryRow(&expressno)
+//	if err != nil{
+//		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
+//		return nil,err
+//	}
+//	return &expressno,err
+//
+//}
 
 
 //删除地址
@@ -499,9 +516,18 @@ func RemoveAdderssById(id int) error{
 func EditAddress(address *models.LuckybagLottoryAddress)(err error){
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err =o.Update(address,"name","email","phone","address")
-	return
+	err =o.Raw("UPDATE `luckybag_lottory_address` as address LEFT JOIN `luckybag_lottory_gifts_logs` as logs "+
+	" on address.open_id=logs.open_id " +
+	" SET address.`name` = ?, address.`email` = ? , address.`phone` = ? , address.`address` = ?,  logs.express_no =? " +
+	"WHERE address.`id` = ?",address.Name,address.Email,address.Phone,address.Address,address.ExpressNo,address.Id).QueryRow(&address)
+	if err!= nil {
+		beego.Debug("[ADMIN REPORT] Get a error",err.Error())
+		return nil
+	}
+	return err
 }
+
+
 
 //更新地址
 func AddAddress(address *models.LuckybagLottoryAddress) (id int64,err error) {
@@ -519,6 +545,29 @@ func AddAddress(address *models.LuckybagLottoryAddress) (id int64,err error) {
 //	return
 //}
 
+//导出QR已使用的编码
+func QRused(starTime,endTime int64) []*models.LuckybagLottory {
+	var use []*models.LuckybagLottory
+	o := orm.NewOrm()
+	o.Using("update")
+	_,err := o.Raw("select * from luckybag_lottory where used_date>0 and used_date>=? and used_date<? ",starTime,endTime).QueryRows(&use)
+	if err != nil{
+		beego.Debug("[ADMIN REPORT] get a qruse error:",err.Error(),"startTime:",starTime,"endTime:",endTime)
+	}
+	return use
+}
+
+//导出QR未使用的编码
+func QRNotUsed(starTime,endTime int64) []*models.LuckybagLottory {
+	var notuse []*models.LuckybagLottory
+	o := orm.NewOrm()
+	o.Using("update")
+	_,err := o.Raw("select * from luckybag_lottory where used_date=0 and created_date>=? and created_date<? ",starTime,endTime).QueryRows(&notuse)
+	if err != nil{
+		beego.Debug("[ADMIN REPORT] get a qruse error:",err.Error(),"startTime:",starTime,"endTime:",endTime)
+	}
+	return notuse
+}
 
 
 

@@ -6,8 +6,6 @@
     {{end}}
     {{if .msg}}
         <p>{{.msg}}</p>
-    {{else}}
-        {{/*<p>当各种商品概率总和已经为100，请修改概率，否则设置概率为0</p>*/}}
     {{end}}
     <form class="form-horizontal" method="post" action="save">
         <table class="table table-form">
@@ -29,6 +27,10 @@
             <tr>
                 <th>收货地址：</th>
                 <td><input name="address" value="{{.address}}" class="input" type="text" /> </td>
+            </tr>
+            <tr>
+                <th>快递单号：</th>
+                <td><input name="expressno" value="{{.expressno}}" class="input" type="text" /> </td>
             </tr>
             </tr>
             </tbody>
