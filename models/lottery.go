@@ -6,6 +6,7 @@ type LuckybagLottoryAddress struct {
 	OpenId   string
 	Name     string
 	Email    string
+	DeliverId	int64
 	Phone    string
 	Address  string
 	Date     int64

@@ -25,7 +25,9 @@ func (this *LotteryController) GetQrcode() {
 		this.Redirect("/login", 302)
 		return
 	}
-	list := GetQR()
+	uid,_ :=this.GetSession("uid").(int)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetQR(deliverID)
 	o := orm.NewOrm()
 	o.Using("update")
 	query := o.QueryTable(new(models.LuckybagLottory))
@@ -135,9 +137,11 @@ func (this *LotteryController) GetWinning() {
 		this.Redirect("/login", 302)
 		return
 	}
-	this.TplName = "Winning_result.html"
 
-	list := GetWinning()
+	this.TplName = "Winning_result.html"
+	uid,_ :=this.GetSession("uid").(int)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetWinning(deliverID)
 	this.Data["winninglist"] = list
 
 }
@@ -188,7 +192,9 @@ func (this *LotteryController) GetAddress() {
 		this.Redirect("/login", 302)
 		return
 	}
-	list := GetAddress()
+	uid,_ := this.GetSession("uid").(int)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetAddress(deliverID)
 	this.Data["lists"] = list
 	this.TplName = "Address_management.html"
 
@@ -201,7 +207,9 @@ func (this *LotteryController) GetRedPack()  {
 		this.Redirect("/login", 302)
 		return
 	}
-	list := RedPack()
+	uid,_ := this.GetSession("uid").(int)
+	deliverID := GetDeliverIDByUid(uid)
+	list := RedPack(deliverID)
 	if len(list) > 0{
 		var display []models.LuckybagLottoryRedpackDisplay
 		for _,o := range list{

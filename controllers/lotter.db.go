@@ -10,13 +10,13 @@ import (
 
 
 
-func GetAddress() []*models.LuckybagLottoryAddress {
+func GetAddress(deliverId int64) []*models.LuckybagLottoryAddress {
 	var address []*models.LuckybagLottoryAddress
 	o := orm.NewOrm()
 	o.Using("update")
 	_, err := o.Raw("SELECT distinct(logs.gift_name),logs.express_no,luck.id,luck.phone,luck.name,luck.address,luck.email,luck.date FROM " +
 		" luckybag_lottory_gifts_logs as logs left JOIN " +
-		" luckybag_lottory_address as luck on luck.open_id=logs.open_id").QueryRows(&address)
+		" luckybag_lottory_address as luck on luck.open_id=logs.open_id where luck.deliver_id=?",deliverId).QueryRows(&address)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] GET a address manager error:", err.Error())
 		return nil
@@ -59,11 +59,11 @@ func GetAddress() []*models.LuckybagLottoryAddress {
 
 //***注：所有QR表示抽奖码；
 //全部抽奖码显示
-func GetQR()[]*models.LuckybagLottory  {
+func GetQR(deliverID int64)[]*models.LuckybagLottory  {
 	var QR []*models.LuckybagLottory
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err := o.Raw("select *  from luckybag_lottory").QueryRows(&QR)
+	_,err := o.Raw("select *  from luckybag_lottory where deliver_id =? ",deliverID).QueryRows(&QR)
 	if err != nil{
 		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
 		return nil
@@ -73,11 +73,11 @@ func GetQR()[]*models.LuckybagLottory  {
 }
 
 //显示红包
-func RedPack() []*models.LuckybagLottoryRedpack  {
+func RedPack(deliverID int64) []*models.LuckybagLottoryRedpack  {
 	var red []*models.LuckybagLottoryRedpack
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,red.date,gift.gift_name from luckybag_lottory_redpack as red left join luckybag_lottory_gifts as gift on red.gift_id=gift.id").QueryRows(&red)
+	_,err := o.Raw("SELECT red.fee,red.code,red.err_msg,red.date,gift.gift_name from luckybag_lottory_redpack as red left join luckybag_lottory_gifts as gift on red.gift_id=gift.id where red.deliver_id= ? ",deliverID).QueryRows(&red)
 	if err != nil{
 		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
 		return nil
@@ -367,11 +367,11 @@ func EditLotteryGifts(gitf *models.LuckybagLottoryGifts) (err error) {
 }
 
 //中奖结果显示
-func GetWinning() []*models.LuckybagLottoryGiftsLogs {
+func GetWinning(deliverID int64) []*models.LuckybagLottoryGiftsLogs {
 	var Winning []*models.LuckybagLottoryGiftsLogs
 	o := orm.NewOrm()
 	o.Using("update")
-	_,err := o.Raw("SELECT code,gift_name,date FROM luckybag_lottory_gifts_logs ").QueryRows(&Winning)
+	_,err := o.Raw("SELECT code,gift_name,date FROM luckybag_lottory_gifts_logs where deliver_id=?",deliverID).QueryRows(&Winning)
 	if err != nil{
 		beego.Debug("[ADMIN REPORT] get a error:",err.Error())
 		return nil
