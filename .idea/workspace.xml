@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/controllers/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/lotter.db.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/lotter.db.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/lottery.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/lottery.go" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/controllers/lotteryuser.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/lotteryuser.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/session.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
@@ -36,8 +37,54 @@
       <change beforePath="$PROJECT_DIR$/views/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/redpack.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/redpack.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/success.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/models/lottery.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/lottery.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/QRcode_query.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/QRcode_query.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/redpack.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/redpack.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/.idea/bossmobile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/.idea/bossmobile.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/conf/app.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/admin/delivermgr/deliver.facade.db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/admin/delivermgr/deliver.facade.db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/admin/rbac/entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/admin/rbac/entry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/admin/report/report.db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/admin/report/report.db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/admin/report/report.facade.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/admin/report/report.facade.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/admin/session/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/admin/session/session.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/entry/desktop.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/entry/desktop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/controllers/public/session/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/controllers/public/session/session.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/models/bankinfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/models/bankinfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/models/registerdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/models/registerdb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/models/report.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/models/report.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/models/virtualcrane.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/models/virtualcrane.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/persistence/wallet/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/persistence/wallet/wallet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/routers/desktop.alipay.withdraw.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/routers/desktop.alipay.withdraw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/static/admin/js/gt.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/static/admin/js/gt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/static/admin/js/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/static/admin/js/md5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/static/content/finance.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/static/content/finance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/admin/T.incomereport.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/admin/T.incomereport.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/admin/T.qrcode.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/admin/T.qrcode.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/admin/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/content/finance.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/content/finance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/content/mywallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/content/mywallet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/content/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/content/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/content/wxdrawcash.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/content/wxdrawcash.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bossmobile/views/desktop/bossmanage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bossmobile/views/desktop/bossmanage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paysys2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../paysys2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/conf/app.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/controllers/admin/report/report.facade.go" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/controllers/admin/report/report.facade.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/controllers/admin/report/report3.db.go" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/controllers/admin/report/report3.db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/models/locker_sales_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/models/locker_sales_log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../youbon2/youbon2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../youbon2/youbon2.exe" afterDir="false" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,9 +92,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="lottery.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/lottery.go">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="93">
               <caret line="228" column="34" selection-start-line="228" selection-start-column="34" selection-end-line="228" selection-end-column="34" />
               <folding>
@@ -57,27 +105,59 @@
                 <element signature="e#15470#15813#0" />
                 <element signature="e#15723#15758#0" />
               </folding>
+=======
+            <state relative-caret-position="64">
+              <caret line="718" column="6" selection-start-line="718" selection-start-column="6" selection-end-line="718" selection-end-column="6" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routers/router.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
               <caret line="40" column="84" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="84" />
+=======
+      <file leaf-file-name="success.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/success.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/app.conf">
           <provider selected="true" editor-type-id="text-editor" />
+=======
+      <file leaf-file-name="Successful_editing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Successful_editing.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="router.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routers/router.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="18" column="82" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
+            </state>
+          </provider>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
+        </entry>
+      </file>
+      <file leaf-file-name="lotter.db.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/lotter.db.go">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-23">
               <caret line="175" column="37" lean-forward="true" selection-start-line="175" selection-start-column="37" selection-end-line="175" selection-end-column="37" />
               <folding>
@@ -104,14 +184,43 @@
                 <element signature="e#14551#14628#0" />
                 <element signature="e#14630#14642#0" />
               </folding>
+=======
+            <state relative-caret-position="242">
+              <caret line="521" lean-forward="true" selection-start-line="521" selection-end-line="521" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="lottery.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/lottery.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2560">
+              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QRcode_query.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/QRcode_query.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2080">
+              <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+=======
+      <find>SettingQuery</find>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
       <find>INSER</find>
       <find>RemoveGift</find>
       <find>settingQuery</find>
@@ -139,9 +248,14 @@
       <find>/Winning/Query</find>
       <find>WinnQuery</find>
       <find>red</find>
+<<<<<<< HEAD
       <find>EditAddress</find>
       <find>LuckybagLottoryRedpackDisplay</find>
       <find>RedPackQuery</find>
+=======
+      <find>LuckybagLottoryRedpackDisplay</find>
+      <find>EditAddress</find>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
     </findStrings>
     <replaceStrings>
       <replace />
@@ -197,14 +311,32 @@
         <option value="$PROJECT_DIR$/views/success.html" />
         <option value="$PROJECT_DIR$/controllers/lotter.db.go" />
         <option value="$PROJECT_DIR$/controllers/lottery.go" />
+        <option value="$PROJECT_DIR$/controllers/lotter.db.go" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-138" />
     <option name="y" value="67" />
     <option name="width" value="1943" />
     <option name="height" value="1102" />
+=======
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="786" />
+    <option name="y" value="60" />
+    <option name="width" value="1944" />
+    <option name="height" value="1103" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -212,7 +344,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,6 +365,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,10 +401,10 @@
       <filePath value="$PROJECT_DIR$/" />
       <package value="Lottery" />
       <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="741" y="74" width="1554" height="881" extended-state="0" />
     <editor active="true" />
     <layout>
@@ -285,20 +417,37 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+=======
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18593371" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3286119" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3286119" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -321,9 +470,22 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://C:/tools/go1.9.2.windows-amd64/src/reflect/value.go" />
     <entry file="file://$PROJECT_DIR$/lotteryuser.sql" />
     <entry file="file://D:/go/src/strconv/atoi.go" />
+=======
+    <entry file="file://C:/tools/go1.9.2.windows-amd64/src/runtime/asm_amd64.s" />
+    <entry file="file://C:/tools/go1.9.2.windows-amd64/src/reflect/value.go" />
+    <entry file="file://$PROJECT_DIR$/lotteryuser.sql" />
+    <entry file="file://D:/go/src/strconv/atoi.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="201" column="27" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
     <entry file="file://$PROJECT_DIR$/../github.com/astaxie/beego/orm/types.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -499,6 +661,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/QRcode_query.html">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2080">
           <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
@@ -506,6 +669,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/winning_query.html" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2080">
+          <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/winning_query.html" />
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="18" column="82" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
     <entry file="file://$PROJECT_DIR$/models/lottery.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2560">
@@ -526,6 +705,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -567,11 +747,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="40" column="84" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="84" />
+=======
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/lottery.go">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="93">
           <caret line="228" column="34" selection-start-line="228" selection-start-column="34" selection-end-line="228" selection-end-column="34" />
           <folding>
@@ -581,6 +764,17 @@
             <element signature="e#15470#15813#0" />
             <element signature="e#15723#15758#0" />
           </folding>
+=======
+        <state relative-caret-position="64">
+          <caret line="718" column="6" selection-start-line="718" selection-start-column="6" selection-end-line="718" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/lotter.db.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="521" lean-forward="true" selection-start-line="521" selection-end-line="521" />
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
         </state>
       </provider>
     </entry>

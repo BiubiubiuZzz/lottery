@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,4 +24,31 @@
     <a href="/qrcode/query" >点击返回</a>
 </div>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{template "inc/foot.html".}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <!-- endbuild -->
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <link href="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.js"></script>
+
+</head>
+<body>
+<div id="container">
+
+    {{if eq .success 0}}
+        <h1>重置失败</h1>
+    {{else }}
+        <h1>重置成功</h1>
+    {{end}}
+    <a href="/qrcode/query" >点击返回</a>
+</div>
+</body>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
 </html>

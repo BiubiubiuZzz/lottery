@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -103,4 +104,111 @@
 
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{template "inc/foot.html".}}
+    {{template "inc/excel.html".}}
+    <script type="text/javascript">
+      function charge(){
+        var Id =$("#Id").val();
+        $.get("/qrcode/queryById", {Id:Id}
+        )
+      };
+      </script>
+  </head>
+  <body>
+    <div id="container">
+      <table bgcolor="#e1e9eb" border="0" cellpadding="0" cellspacing="0" >
+        <tbody>
+          <tr>
+            <td width="150" class="leftTd"  style="vertical-align:top">
+              {{template "inc/meta.html".}}
+            </td>
+            <td width="7">
+              <div class="pointer"></div>
+            </td>
+            
+            <td width="100%" style="vertical-align:top">
+              <div class="right">
+                <div class="current">
+                  当前位置：抽奖码查询
+                </div>
+                <div class="rightCont fix">
+
+                  <!-- 主体内容 -->
+
+                  <div class="zy_mainbox">
+                      <form action="/qrcode/queryById" method="post">
+                      <input id="Id" name="Id" type="text" placeholder="请输入抽奖码" style="font-size: 20px" value={{.queryValue }}>
+                      <button id ="add"  class="zy_button queryclass" type="submit">查询</button>
+                    </form>
+                    <br>
+                    <div class="spantable">
+                      开始时间:<input id="start" type="text" class="put_date" > 结束时间
+                       <input id="end" type="text" class="put_date"> 
+                       <!-- <input type="radio" name="scope" value="qr">test</input> -->
+                      <button  type="radio" id="saveSpan" class="btn btn-primary" data-scope="qr">导出</button>
+                    </div>
+					 {{if .qrlist}}
+                    <div class="tools clearfix">
+                        <span class="titletxt fl">查询结果:</span>
+                    </div>
+                    <div class="award_manager">
+                      <table class="award_managerlist">
+                        <tbody>
+                          <tr class="th_bg">
+                            <th class="aClass" width="5%">ID</th>
+                            <th class="aClass" width="10%">QX</th>
+                            {{/*<th class="aClass" width="10%">奖品名称</th>*/}}
+                            <th class="aClass" width="20%">QRcode-url</th>
+                            <th class="aInterface" width="15%">QRcode创建时间</th>
+                            <th class="aType" width="15%">使用时间</th>
+                            <th class="aSmallclass" width="10%">物品类型</th>
+                          </tr>
+                          {{range $k,$v := .qrlist}}
+                          <tr>
+                            <td class="aClass">{{$v.Id}}</td>
+                            <td class="aType">{{$v.Qx}}</td>
+                            <td class="aInterface">{{$v.Url}}</td>
+                            <td class="aSmallclass">{{$v.CreatedDate|convertt}}</td>
+                            {{if eq $v.UsedDate 0}}
+                            <td class="aInterface">暂无使用</td>
+                            {{else}}
+                            <td class="aInterface">{{$v.UsedDate|convertt}}</td>
+                            {{end}}
+                            {{if eq $v.Method 1}}
+                            <td class="aSmallclass">红包</td>
+                            {{else if eq $v.Method 2}}
+                            <td class="aSmallclass">实物</td>
+                            {{else }}
+                            <td class="aSmallclass">无</td>
+                            {{end}}
+                          </tr>
+                        {{end}}
+                        </tbody>
+                        <tr>
+                          <td colspan="20">{{str2html .pagebar}}</td>
+                        </tr>
+                      </table>
+                    </div>
+					 {{end}}
+                    <iframe id="my_iframe" style="display:none;"></iframe>
+                    {{template "inc/js.html".}}
+                    </div>
+                  </div>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+</body>
+>>>>>>> 486f1e11abd8f680e117b53701944ed25d63132e
 </html>
