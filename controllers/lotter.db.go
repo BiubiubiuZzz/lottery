@@ -157,16 +157,25 @@ func GetGiftUsedByGiftID(giftID int64) int64 {
 	if err != nil{
 		beego.Debug("[ADMIN REPORT]Get a gifts used err:",err.Error())
 	}
-	sql1 := fmt.Sprintf("select count(*) as used from luckybag_lottory_redpack where gift_id=%d ",giftID)
-	err1 := o.Raw(sql1).QueryRow(&result)
-	if err != nil{
-		beego.Debug("[ADMIN REPORT]get a red use err:",err1.Error())
-	}
 
 	return result
 }
 
-//显示剩余数量
+//查询红包使用总数
+func  GetRedPackUsedByGiftID(giftID int64) int64  {
+	var redresult int64 =0
+	o :=orm.NewOrm()
+	o.Using("update")
+	sql := fmt.Sprintf("select count(*) as used from luckybag_lottory_redpack where gift_id=%d ",giftID)
+	err := o.Raw(sql).QueryRow(&redresult)
+	if err != nil{
+		beego.Debug("[ADMIN REPORT]get a red use err:",err.Error())
+	}
+	return redresult
+}
+
+
+//显示实物剩余数量
 func GetLeftQuantity(giftID int64) int64 {
 	var totalUsedCount int64
 	var gift models.LuckybagLottoryGifts
@@ -192,13 +201,37 @@ func GetLeftQuantity(giftID int64) int64 {
 	return leftQuantity
 }
 
-//显示活动设置的数据--根据用户deliver_id显示
+//显示红包剩余数量
+func GetRedQuantity(giftID int64) int64{
+	var totalUsedCount int64
+	var  gift models.LuckybagLottoryGifts
+	o := orm.NewOrm()
+	o.Using("update")
+	sql := fmt.Sprintf("select * from luckybag_lottory_gifts where id =%d",giftID)
+	err := o.Raw(sql).QueryRow(&gift)
+	if err != nil{
+		beego.Debug("[ADMIN REPORT] Get a quantity err:",err.Error())
+	}
+	sql1 := fmt.Sprintf("select count(*) from luckybag_lottory_redpack where gift_id =%d and date >= %d",giftID,gift.Date)
+	err1 := o.Raw(sql1).QueryRow(&totalUsedCount)
+	if err1 != nil {
+		beego.Debug("[ADMIN REPORT] get a  use number err:",err.Error())
+	}
+	redQuantity := gift.Quantity - totalUsedCount
+	if redQuantity <0 {
+		redQuantity = 0
+	}
+	return redQuantity
+}
+
+
+//显示实物活动设置的数据--根据用户deliver_id显示
 func GetActivity(deliverID int64) []*models.LuckybagLottoryGifts {
 	var AC []*models.LuckybagLottoryGifts
 	var result []*models.LuckybagLottoryGifts = nil
 	o := orm.NewOrm()
 	o.Using("update")
-	_, err := o.Raw("select * from luckybag_lottory_gifts where deliver_id =? ",deliverID).QueryRows(&AC)
+	_, err := o.Raw("select * from luckybag_lottory_gifts where deliver_id =? and method =2",deliverID).QueryRows(&AC)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] GET a error:", err.Error())
 		return nil
@@ -214,14 +247,37 @@ func GetActivity(deliverID int64) []*models.LuckybagLottoryGifts {
 
 }
 
-//添加活动奖品查询
+
+//显示红包活动设置的数据--根据用户deliver_id显示
+func GetRedPackActivity(deliverID int64) []*models.LuckybagLottoryGifts {
+	var AC []*models.LuckybagLottoryGifts
+	var result []*models.LuckybagLottoryGifts = nil
+	o := orm.NewOrm()
+	o.Using("update")
+	_, err := o.Raw("select * from luckybag_lottory_gifts where deliver_id =? and method =1",deliverID).QueryRows(&AC)
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] GET a error:", err.Error())
+		return nil
+	}
+	beego.Debug("[ADMIN REPORT] get activity:", len(AC))
+
+	for _, gift := range AC {
+		gift.Used = GetRedPackUsedByGiftID(gift.Id)
+		gift.RedPackLeftQuantity  =GetRedQuantity(gift.Id)
+		result = append(result, gift)
+	}
+	return result
+
+}
+
+//添加活动实物奖品查询
 func GetActivityByName(awardName string) []*models.LuckybagLottoryGifts {
 	var AC []*models.LuckybagLottoryGifts
 	var result []*models.LuckybagLottoryGifts = nil
 	o := orm.NewOrm()
 	o.Using("update")
 
-	cond := fmt.Sprintf("select * from luckybag_lottory_gifts where gift_name REGEXP '%s'", awardName)
+	cond := fmt.Sprintf("select * from luckybag_lottory_gifts where method =2 and gift_name REGEXP '%s'", awardName)
 	_, err := o.Raw(cond).QueryRows(&AC)
 	if err != nil {
 		beego.Debug("[ADMIN REPORT] GET a error:", err.Error())
@@ -236,6 +292,30 @@ func GetActivityByName(awardName string) []*models.LuckybagLottoryGifts {
 	}
 	return result
 }
+
+//添加活动红包奖品查询
+func GetRedPackActivityByName(awardName string) []*models.LuckybagLottoryGifts {
+	var AC []*models.LuckybagLottoryGifts
+	var result []*models.LuckybagLottoryGifts = nil
+	o := orm.NewOrm()
+	o.Using("update")
+
+	cond := fmt.Sprintf("select * from luckybag_lottory_gifts where method =1 and gift_name REGEXP '%s'", awardName)
+	_, err := o.Raw(cond).QueryRows(&AC)
+	if err != nil {
+		beego.Debug("[ADMIN REPORT] GET a error:", err.Error())
+		return nil
+	}
+	beego.Debug("[ADMIN REPORT] get activity:", len(AC))
+	for _, gift := range AC {
+		gift.Used = GetRedPackUsedByGiftID(gift.Id)
+		gift.RedPackLeftQuantity  =GetRedQuantity(gift.Id)
+		result = append(result, gift)
+
+	}
+	return result
+}
+
 
 //中奖商品Id查询
 func GetWinningByCodeId(id string) []*models.LuckybagLottory {

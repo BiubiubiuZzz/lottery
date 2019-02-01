@@ -28,17 +28,17 @@ func (this *LotteryController) GetQrcode() {
 	uid,_ :=this.GetSession("uid").(int)
 	deliverID := GetDeliverIDByUid(uid)
 	list := GetQR(deliverID)
-	o := orm.NewOrm()
-	o.Using("update")
-	query := o.QueryTable(new(models.LuckybagLottory))
-	count,_ := query.Count()
-	query.OrderBy("-id").Limit(this.pager.Pagesize,(this.pager.Page-1)*this.pager.Pagesize).All(&list)
+	//o := orm.NewOrm()
+	//o.Using("update")
+	//query := o.QueryTable(new(models.LuckybagLottory))
+	//count,_ := query.Count()
+	//query.OrderBy("-id").Limit(this.pager.Pagesize,(this.pager.Page-1)*this.pager.Pagesize).All(&list)
 
 	this.Data["qrlist"] =list
-	this.pager.SetTotalnum(int(count))
-	this.pager.SetUrlpath("/qrcode/query?page=%d")
-	this.Data["pagebar"] = this.pager.ToString()
-	this.display()
+	//this.pager.SetTotalnum(int(count))
+	//this.pager.SetUrlpath("/qrcode/query?page=%d")
+	//this.Data["pagebar"] = this.pager.ToString()
+	//this.display()
 
 	this.Data["queryValue"] = ""
 	this.TplName = "QRcode_query.html"
@@ -66,7 +66,6 @@ func (this *LotteryController) QueryById() {
 				t.Method = v.Method
 				t.CreatedDate = v.CreatedDate
 				t.UsedDate = v.UsedDate
-				//t.GiftName =v.GiftName
 				oList = append(oList, t)
 			}
 			this.Data["qrlist"] = oList
@@ -78,7 +77,7 @@ func (this *LotteryController) QueryById() {
 
 }
 
-//奖品名称查询
+//奖品名称实物查询
 func (this *LotteryController) SettingQuery() {
 	Logined := this.GetSession("login")
 	if Logined != true {
@@ -89,11 +88,151 @@ func (this *LotteryController) SettingQuery() {
 
 	if priceName != "" {
 		list := GetActivityByName(priceName)
-		this.Data["activitylists"] = list
+		if list !=  nil {
+			var olist []models.LuckybagLottoryGiftsDisplay
+			for _,o := range list{
+				var t models.LuckybagLottoryGiftsDisplay
+				t.Id = o.Id
+				t.DeliverId = o.DeliverId
+				t.GiftName = o.GiftName
+				t.GiftPic = o.GiftPic
+				t.Fee = float64(float64(o.Fee) / float64(FAC))
+				t.Odds = float64(float64(o.Odds) / float64(FACTOR))
+				t.OddsBase = o.OddsBase
+				t.OddsTop = o.OddsTop
+				t.Valid = o.Valid
+				t.Method = o.Method
+				t.Quantity = o.Quantity
+				t.Date = o.Date
+				t.Used = o.Used
+				t.LeftQuantity = o.LeftQuantity
+				t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
+				olist = append(olist, t)
+			}
+			this.Data["activitylists"] = olist
+		}
 	}
 	this.Data["queryValue"] = priceName
 	this.TplName = "Prize_setting.html"
 
+}
+
+//奖品名称红包查询
+func (this *LotteryController) SettingRedPackQuery() {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	priceName := this.Input().Get("PriceName")
+
+	if priceName != "" {
+		list := GetRedPackActivityByName(priceName)
+		if list !=  nil {
+			var olist []models.LuckybagLottoryGiftsDisplay
+			for _,o := range list{
+				var t models.LuckybagLottoryGiftsDisplay
+				t.Id = o.Id
+				t.DeliverId = o.DeliverId
+				t.GiftName = o.GiftName
+				t.GiftPic = o.GiftPic
+				t.Fee = float64(float64(o.Fee) / float64(FAC))
+				t.Odds = float64(float64(o.Odds) / float64(FACTOR))
+				t.OddsBase = o.OddsBase
+				t.OddsTop = o.OddsTop
+				t.Valid = o.Valid
+				t.Method = o.Method
+				t.Quantity = o.Quantity
+				t.Date = o.Date
+				t.Used = o.Used
+				t.RedPackLeftQuantity = o.RedPackLeftQuantity
+				t.Total = int64(int64(o.RedPackLeftQuantity) + int64(o.Used))
+				olist = append(olist, t)
+			}
+			this.Data["activitylists"] = olist
+		}
+	}
+	this.Data["queryValue"] = priceName
+	this.TplName = "Prize_settingRedpack.html"
+
+}
+
+//活动实物显示
+func (this *LotteryController) GetPrize() {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	uid,_ := this.GetSession("uid").(int)
+	fmt.Println(uid)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetActivity(deliverID)
+
+	if len(list) > 0 {
+		var display []models.LuckybagLottoryGiftsDisplay
+		for _, o := range list {
+			var t models.LuckybagLottoryGiftsDisplay
+			t.Id = o.Id
+			t.DeliverId = o.DeliverId
+			t.GiftName = o.GiftName
+			t.GiftPic = o.GiftPic
+			t.Fee = float64(float64(o.Fee) / float64(FAC))
+			t.Odds = float64(float64(o.Odds) / float64(FACTOR))
+			t.OddsBase = o.OddsBase
+			t.OddsTop = o.OddsTop
+			t.Valid = o.Valid
+			t.Method = o.Method
+			t.Quantity = o.Quantity
+			t.Date = o.Date
+			t.Used = o.Used
+			t.LeftQuantity = o.LeftQuantity
+			t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
+			display = append(display, t)
+		}
+		this.Data["activitylists"] = display
+	}
+
+	this.TplName = "Prize_setting.html"
+}
+
+//活动红包显示
+func (this *LotteryController) GetRedPackPrize() {
+	Logined := this.GetSession("login")
+	if Logined != true {
+		this.Redirect("/login", 302)
+		return
+	}
+	uid,_ := this.GetSession("uid").(int)
+	fmt.Println(uid)
+	deliverID := GetDeliverIDByUid(uid)
+	list := GetRedPackActivity(deliverID)
+
+	if len(list) > 0 {
+		var display []models.LuckybagLottoryGiftsDisplay
+		for _, o := range list {
+			var t models.LuckybagLottoryGiftsDisplay
+			t.Id = o.Id
+			t.DeliverId = o.DeliverId
+			t.GiftName = o.GiftName
+			t.GiftPic = o.GiftPic
+			t.Fee = float64(float64(o.Fee) / float64(FAC))
+			t.Odds = float64(float64(o.Odds) / float64(FACTOR))
+			t.OddsBase = o.OddsBase
+			t.OddsTop = o.OddsTop
+			t.Valid = o.Valid
+			t.Method = o.Method
+			t.Quantity = o.Quantity
+			t.Date = o.Date
+			t.Used = o.Used
+			t.RedPackLeftQuantity = o.RedPackLeftQuantity
+			t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
+			display = append(display, t)
+		}
+		this.Data["activitylists"] = display
+	}
+
+	this.TplName = "Prize_settingRedpack.html"
 }
 
 //中奖结果查询 ---Id查询
@@ -146,44 +285,6 @@ func (this *LotteryController) GetWinning() {
 
 }
 
-//活动显示
-func (this *LotteryController) GetPrize() {
-	Logined := this.GetSession("login")
-	if Logined != true {
-		this.Redirect("/login", 302)
-		return
-	}
-	uid,_ := this.GetSession("uid").(int)
-	fmt.Println(uid)
-	deliverID := GetDeliverIDByUid(uid)
-	list := GetActivity(deliverID)
-
-	if len(list) > 0 {
-			var display []models.LuckybagLottoryGiftsDisplay
-			for _, o := range list {
-				var t models.LuckybagLottoryGiftsDisplay
-				t.Id = o.Id
-				t.DeliverId = o.DeliverId
-				t.GiftName = o.GiftName
-				t.GiftPic = o.GiftPic
-				t.Fee = float64(float64(o.Fee) / float64(FAC))
-				t.Odds = float64(float64(o.Odds) / float64(FACTOR))
-				t.OddsBase = o.OddsBase
-				t.OddsTop = o.OddsTop
-				t.Valid = o.Valid
-				t.Method = o.Method
-				t.Quantity = o.Quantity
-				t.Date = o.Date
-				t.Used = o.Used
-				t.LeftQuantity = o.LeftQuantity
-				t.Total = int64(int64(o.LeftQuantity) + int64(o.Used))
-				display = append(display, t)
-			}
-			this.Data["activitylists"] = display
-		}
-
-	this.TplName = "Prize_setting.html"
-}
 
 //地址
 func (this *LotteryController) GetAddress() {
@@ -253,7 +354,6 @@ func (this *LotteryController) RedPackQuery()  {
 	this.Data["radValue"] = code
 	this.TplName ="redpack.html"
 }
-
 
 //编辑用户地址信息
 func (this *LotteryController) SettingAddress() {
@@ -401,7 +501,6 @@ func (this *LotteryController) Setting() {
 			this.Data["msg"] = err.Error()
 		}
 	}
-	//this.Data["activitylists"] =list
 	this.TplName = "Activity_settings.html"
 }
 
@@ -761,7 +860,6 @@ func (this *LotteryController) RemoveGift() {
 	if id != -1 && err == nil {
 		err := this.removeGift(int(deliverID), int64(id))
 		if err == nil {
-			//this.Ctx.WriteString("<h1>删除记录 成功</h1>")
 			this.Data["success"] = 1
 			this.TplName = "Delete_result.html"
 		} else {

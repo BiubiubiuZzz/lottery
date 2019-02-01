@@ -29,6 +29,7 @@ type LuckybagLottoryGifts struct {
 	Updated		int64
 	Used         int64 `orm:"-"` //used number
 	LeftQuantity int64 `orm:"-"`
+	RedPackLeftQuantity int64 `orm:"-"`
 	Total         int64 `orm:"-"` //总数
 }
 
@@ -47,6 +48,7 @@ type LuckybagLottoryGiftsDisplay struct {
 	Date         int64
 	Used         int64 `orm:"-"` //used number
 	LeftQuantity int64 `orm:"-"`
+	RedPackLeftQuantity int64 `orm:"-"`
 	Total         int64 `orm:"-"`
 }
 
